@@ -11,6 +11,9 @@
     <ClCompile Include="terrain.cpp">
       <Filter>terrain</Filter>
     </ClCompile>
+    <ClCompile Include="point.cpp">
+      <Filter>point</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -26,6 +29,9 @@
     <Filter Include="terrain">
       <UniqueIdentifier>{f8700e8f-29ee-4251-8767-b9dacef24f01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="point">
+      <UniqueIdentifier>{b22ed4b8-7709-4838-b30d-79fcd8c6faef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="svg.h">
@@ -36,6 +42,10 @@
     </ClInclude>
     <ClInclude Include="terrain.h">
       <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="header.h" />
+    <ClInclude Include="point.h">
+      <Filter>point</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
