@@ -86,6 +86,7 @@ void Map::generateMap(string path) {
 				Point::Transform(w + 1, h, terrain->Height),
 				terrain->Color);
 
+			//poziom morza
 			if (terrain->Height < 0) {
 				svg.addPolygon(
 					Point::Transform(w, h),
@@ -93,6 +94,25 @@ void Map::generateMap(string path) {
 					Point::Transform(w + 1, h + 1),
 					Point::Transform(w + 1, h),
 					"rgba(173,216,230,0.5)");
+
+				//wygladzanie koñcza poziomu morza
+				if (w + 1 == Width) {
+					svg.addPolygon(
+						Point::Transform(w + 1, h + 1),
+						Point::Transform(w + 1, h),
+						Point::Transform(w + 1, h, terrain->Height),
+						Point::Transform(w + 1, h + 1, terrain->Height),
+						"rgba(173,216,230,0.5)");
+				}
+
+				if (h + 1 == Height) {
+					svg.addPolygon(
+						Point::Transform(w, h + 1),
+						Point::Transform(w + 1, h + 1),
+						Point::Transform(w + 1, h + 1, terrain->Height),
+						Point::Transform(w, h + 1, terrain->Height),
+						"rgba(173,216,230,0.5)");
+				}
 			}
 
 			//Przejœcia terenowe
@@ -103,6 +123,13 @@ void Map::generateMap(string path) {
 					Point::Transform(w + 1, h, getTerrain(w + 1, h)->Height),
 					Point::Transform(w + 1, h + 1, getTerrain(w + 1, h)->Height),
 					terrain->Color);
+			} else {
+				svg.addPolygon(
+					Point::Transform(w + 1, h + 1, terrain->Height),
+					Point::Transform(w + 1, h, terrain->Height),
+					Point::Transform(w + 1, h, LowestPoint),
+					Point::Transform(w + 1, h + 1, LowestPoint),
+					terrain->Color);
 			}
 
 			if (h + 1 < Height) {
@@ -111,6 +138,13 @@ void Map::generateMap(string path) {
 					Point::Transform(w + 1, h + 1, terrain->Height),
 					Point::Transform(w + 1, h + 1, getTerrain(w, h + 1)->Height),
 					Point::Transform(w, h + 1, getTerrain(w, h + 1)->Height),
+					terrain->Color);
+			} else {
+				svg.addPolygon(
+					Point::Transform(w, h + 1, terrain->Height),
+					Point::Transform(w + 1, h + 1, terrain->Height),
+					Point::Transform(w + 1, h + 1, LowestPoint),
+					Point::Transform(w, h + 1, LowestPoint),
 					terrain->Color);
 			}
 		};
