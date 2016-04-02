@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="program.cpp" />
+    <ClCompile Include="svg.cpp">
+      <Filter>svg</Filter>
+    </ClCompile>
+    <ClCompile Include="map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="input-map.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="map">
+      <UniqueIdentifier>{94db7a7c-f5eb-4e66-a8ee-ddad3866552f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg">
+      <UniqueIdentifier>{8e1e9f65-2d81-4740-a346-05c9f41e5fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain">
+      <UniqueIdentifier>{f8700e8f-29ee-4251-8767-b9dacef24f01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="svg.h">
+      <Filter>svg</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
