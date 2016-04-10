@@ -2,10 +2,32 @@
 
 using namespace std;
 
-void Map::initMapArray() {
-	mapArray = new Terrain*[Width];
-	for (int i = 0; i < Width; ++i)
-		mapArray[i] = new Terrain[Height];
+void Map::expandMap(int w, int h) {
+
+	mapArray = new Terrain*[w];
+	if (w > Width) {
+		mapArray = (Terrain **)realloc(mapArray, sizeof(Terrain*)*w);
+		for (int i = Width; i < w; i++) {
+			mapArray[i] = new Terrain[5];
+		}
+
+		Width = w;
+	}
+
+	if (h > Height) {
+		for (int i = 0; i < Width; i++) {
+			//mapArray[i] = new Terrain[h];
+			//cout << i << endl;
+			if (mapArray[i] == NULL) {
+				//continue;
+			}
+			mapArray[i] = (Terrain *)realloc(mapArray[i], sizeof(Terrain)*10);
+		}
+
+		Height = h;
+	}
+
+	//cout << "w:" << sizeof mapArray / sizeof mapArray[0] << " c:" << sizeof mapArray[0] / sizeof(Terrain) << endl;
 };
 
 Terrain * Map::getTerrain(int x, int y) {
@@ -23,46 +45,50 @@ void Map::setLowestPoint(int z) {
 void Map::readMapFromFile(string path) {
 	int wrong;
 
-	FILE * file = fopen(path.c_str(), "r");
-
-	//Wczytywanie wieloœci mapy
-	wrong = fscanf(file, "%dx%d", &Width, &Height);
-	if (!wrong) {
-		puts("B³¹d podczas wczycztywania wielkoœci mapy");
-		exit(1);
-	}
-	initMapArray();
+	ifstream file (path);
 
 	//Wczytywanie ca³ej mapy
-	int seaLvl;
+	int w = 0, h = 0;
 	char color[16];
 	Terrain * tempTerrain;
+	stringstream stream;
+	string line;
 
-	for (int h = 0; h < Height; h++) {
+	while (getline(file, line)){//Height
+		h++;
 
-		for (int w = 0; w < Width; w++) {
+		for (int i = 0, n = 0; i < line.length(); i++){
+			stream << line[i];
 
-			tempTerrain = getTerrain(w, h);
+			if (line[i] == ';') {
+				n++;
 
-			wrong = fscanf(file, "%d:%16[^;];", &seaLvl, color);
+				if (n > w) w = n;
+
+				expandMap(w, h);
+				getTerrain(n - 1, -1);
+				stream.str(std::string());
+			}
+		}
+
+			/*tempTerrain = getTerrain(w, h);
+
+			wrong = fscanf(file, "%d:%[^;];", &seaLvl, color);
 			if (!wrong) {
 				printf("B³¹d podczas wczycztywania mapy");
 				exit(2);
 			}
-			
-			//cout << seaLvl << ":" << color << ";";
 
 			tempTerrain->Color = string(color);
 			tempTerrain->Height = seaLvl;
-
-			setHighestPoint(seaLvl);
-			setLowestPoint(seaLvl);
-		}; 
-		fscanf(file, "");
-		//cout << endl;
+			*/
+			//setHighestPoint(seaLvl);
+			//setLowestPoint(seaLvl);
 	};
 
-	fclose(file);
+	cout << "qq" << endl;
+
+	file.close();
 };
 
 void Map::generateMap(string path) {

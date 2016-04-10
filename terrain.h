@@ -8,4 +8,5 @@ public:
 	int Height;
 	bool Water;
 
+	void Load(string data);
 };

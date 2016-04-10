@@ -11,7 +11,7 @@ public:
 
 
 public:
-	void initMapArray();
+	void expandMap(int w, int h);
 	void readMapFromFile(string path);
 	Terrain * getTerrain(int x, int y);
 	void generateMap(string path);

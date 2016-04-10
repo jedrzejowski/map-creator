@@ -3,11 +3,9 @@
 
 using namespace std;
 
-
-
 class Svg {
 private:
-	list<string> outputLines;
+	stringstream output;
 public:
 	int Height, Width;
 
