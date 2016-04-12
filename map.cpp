@@ -45,6 +45,7 @@ void Map::readMapFromFile(string path) {
 	//Wczytywanie ca³ej mapy
 	stringstream stream;
 	string line;
+	Terrain* tempTerrain;
 
 	while (getline(file, line)) {//Height
 
@@ -53,11 +54,17 @@ void Map::readMapFromFile(string path) {
 			stream << line[i];
 
 			if (line[i] == ';') {
+
+				tempTerrain = Terrain::Create(stream);
+
+				tempTerrain->X = n;
+				tempTerrain->Y = Height;
+
+				addTerrain(tempTerrain);
+				
+
 				n++;
 				if (n > Width) Width++;
-
-				addTerrain(Terrain::Create(stream));
-				
 				stream.str(std::string());
 			}
 			
@@ -74,86 +81,16 @@ void Map::generateMap(string path) {
 		Point::Transform(Width + 2, 0, LowestPoint).X,
 		Point::Transform(Width + 2, Height + 2, LowestPoint).Y
 		);
-	Terrain * terrain;
-
-
+	
 	for (int h = 0; h < Height; h++) {
 
 		for (int w = 0; w < Width; w++) {
 
-			terrain = getTerrain(w, h);
+			getTerrain(w, h)->drawInSvg(svg);
 
-			svg.addPolygon(
-				Point::Transform(w, h, terrain->Height),
-				Point::Transform(w, h + 1, terrain->Height),
-				Point::Transform(w + 1, h + 1, terrain->Height),
-				Point::Transform(w + 1, h, terrain->Height),
-				terrain->getSvgColor());
-
-			//poziom morza
-			if (terrain->Water) {
-
-				svg.addPolygon(
-					Point::Transform(w, h),
-					Point::Transform(w, h + 1),
-					Point::Transform(w + 1, h + 1),
-					Point::Transform(w + 1, h),
-					"rgba(173,216,230,0.5)");
-
-				//wygladzanie koñcza poziomu morza
-				if (w + 1 == Width) {
-					svg.addPolygon(
-						Point::Transform(w + 1, h + 1),
-						Point::Transform(w + 1, h),
-						Point::Transform(w + 1, h, terrain->Height),
-						Point::Transform(w + 1, h + 1, terrain->Height),
-						"rgba(173,216,230,0.5)");
-				}
-
-				if (h + 1 == Height) {
-					svg.addPolygon(
-						Point::Transform(w, h + 1),
-						Point::Transform(w + 1, h + 1),
-						Point::Transform(w + 1, h + 1, terrain->Height),
-						Point::Transform(w, h + 1, terrain->Height),
-						"rgba(173,216,230,0.5)");
-				}
-			}
-
-			//Przejœcia terenowe
-			if (w + 1 < Width) {
-				svg.addPolygon(
-					Point::Transform(w + 1, h + 1, terrain->Height),
-					Point::Transform(w + 1, h, terrain->Height),
-					Point::Transform(w + 1, h, getTerrain(w + 1, h)->Height),
-					Point::Transform(w + 1, h + 1, getTerrain(w + 1, h)->Height),
-					terrain->getSvgColor());
-			} else {
-				svg.addPolygon(
-					Point::Transform(w + 1, h + 1, terrain->Height),
-					Point::Transform(w + 1, h, terrain->Height),
-					Point::Transform(w + 1, h, LowestPoint),
-					Point::Transform(w + 1, h + 1, LowestPoint),
-					terrain->getSvgColor());
-			}
-
-			if (h + 1 < Height) {
-				svg.addPolygon(
-					Point::Transform(w, h + 1, terrain->Height),
-					Point::Transform(w + 1, h + 1, terrain->Height),
-					Point::Transform(w + 1, h + 1, getTerrain(w, h + 1)->Height),
-					Point::Transform(w, h + 1, getTerrain(w, h + 1)->Height),
-					terrain->getSvgColor());
-			} else {
-				svg.addPolygon(
-					Point::Transform(w, h + 1, terrain->Height),
-					Point::Transform(w + 1, h + 1, terrain->Height),
-					Point::Transform(w + 1, h + 1, LowestPoint),
-					Point::Transform(w, h + 1, LowestPoint),
-					terrain->getSvgColor());
-			}
 		};
 	};
+
 	svg.save(path);
 };
 

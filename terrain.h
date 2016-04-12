@@ -7,9 +7,12 @@ public:
 	Terrain *Next;
 	string Texture;
 	string Type;
-	int Height;
+	int Height, X, Y;
 	bool Water;
 	void setHeight(int seaLvl);
+
+	void drawInSvg(Svg &svg);
+
 	static Terrain* Create(stringstream&data);
 
 	virtual string getSvgColor();

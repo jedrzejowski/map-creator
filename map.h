@@ -10,7 +10,6 @@ public:
 	int Height = 0, Width = 0, HighestPoint, LowestPoint;
 
 public:
-	void expandMap(int w, int h);
 	void readMapFromFile(string path);
 	Terrain * getTerrain(int x, int y);
 	void addTerrain(Terrain *terrain);

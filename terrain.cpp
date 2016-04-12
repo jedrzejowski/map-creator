@@ -36,8 +36,6 @@ Terrain* Terrain::Create(stringstream&data) {
 	getline(data, type, ':');
 	getline(data, texture, ';');
 
-
-
 	Terrain *output;
 
 		 if (!type.compare("forest")) output = new ForestTerrain();
@@ -49,13 +47,88 @@ Terrain* Terrain::Create(stringstream&data) {
 	output->Type = type;
 	output->Texture = texture;
 
-	cout << type;
-
 	return output;
 };
 
+void Terrain::drawInSvg(Svg &svg) {
+	
+	svg.addPolygon(
+		Point::Transform(X, Y, Height),
+		Point::Transform(X, Y + 1, Height),
+		Point::Transform(X + 1, Y + 1, Height),
+		Point::Transform(X + 1, Y, Height),
+		getSvgColor());
+
+	//poziom morza
+	if (Water) {
+
+		svg.addPolygon(
+			Point::Transform(X, Y),
+			Point::Transform(X, Y + 1),
+			Point::Transform(X + 1, Y + 1),
+			Point::Transform(X + 1, Y),
+			"rgba(173,216,230,0.5)");
+
+		//wygladzanie koñcza poziomu morza
+		if (X + 1 == map.Width) {
+			svg.addPolygon(
+				Point::Transform(X + 1, Y + 1),
+				Point::Transform(X + 1, Y),
+				Point::Transform(X + 1, Y, Height),
+				Point::Transform(X + 1, Y + 1, Height),
+				"rgba(173,216,230,0.5)");
+		}
+
+		if (Y + 1 == map.Height) {
+			svg.addPolygon(
+				Point::Transform(X, Y + 1),
+				Point::Transform(X + 1, Y + 1),
+				Point::Transform(X + 1, Y + 1, Height),
+				Point::Transform(X, Y + 1, Height),
+				"rgba(173,216,230,0.5)");
+		}
+	}
+
+	//Przejœcia terenowe
+	if (X + 1 < map.Width) {
+		svg.addPolygon(
+			Point::Transform(X + 1, Y + 1, Height),
+			Point::Transform(X + 1, Y, Height),
+			Point::Transform(X + 1, Y, map.getTerrain(X + 1, Y)->Height),
+			Point::Transform(X + 1, Y + 1, map.getTerrain(X + 1, Y)->Height),
+			getSvgColor());
+	}
+	else {
+		svg.addPolygon(
+			Point::Transform(X + 1, Y + 1, Height),
+			Point::Transform(X + 1, Y, Height),
+			Point::Transform(X + 1, Y, map.LowestPoint),
+			Point::Transform(X + 1, Y + 1, map.LowestPoint),
+			getSvgColor());
+	}
+
+	if (Y + 1 < map.Height) {
+		svg.addPolygon(
+			Point::Transform(X, Y + 1, Height),
+			Point::Transform(X + 1, Y + 1, Height),
+			Point::Transform(X + 1, Y + 1, map.getTerrain(X, Y + 1)->Height),
+			Point::Transform(X, Y + 1, map.getTerrain(X, Y + 1)->Height),
+			getSvgColor());
+	}
+	else {
+		svg.addPolygon(
+			Point::Transform(X, Y + 1, Height),
+			Point::Transform(X + 1, Y + 1, Height),
+			Point::Transform(X + 1, Y + 1, map.LowestPoint),
+			Point::Transform(X, Y + 1, map.LowestPoint),
+			getSvgColor());
+	}
+};
+
 string MountainTerrain::getSvgColor() {
-	return "gray";
+	if (!Texture.compare("dark")) return "gray";
+
+	return "lightgray";
 }
 
 string ForestTerrain::getSvgColor() {

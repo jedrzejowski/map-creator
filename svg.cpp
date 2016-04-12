@@ -2,11 +2,8 @@
 
 using namespace std;
 
-Svg::Svg() {
-}
-
-
 Svg::Svg(int w, int h) {
+	output = new stringstream();
 	Width = w;
 	Height = h;
 }
@@ -21,7 +18,7 @@ void Svg::save(string path) {
 };
 
 void Svg::addPolygon(Point point1, Point point2, Point point3, Point point4, string color) {
-	*output << "<polygon points='"
+	(*output) << "<polygon points='"
 		<< point1.X << "," << point1.Y << " "
 		<< point2.X << "," << point2.Y << " "
 		<< point3.X << "," << point3.Y << " "
