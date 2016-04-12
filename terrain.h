@@ -4,8 +4,26 @@ using namespace std;
 
 class Terrain {
 public:
-	string Color;
+	Terrain *Next;
+	string Texture;
+	string Type;
 	int Height;
 	bool Water;
 
+	void setHeight(int seaLvl);
+	static Terrain* Create(stringstream&data);
+
+	virtual string getSvgColor();
+};
+
+class SandTerrain: public Terrain {
+	virtual string getSvgColor() override;
+};
+
+class MountainTerrain : public Terrain {
+	virtual string getSvgColor() override;
+};
+
+class ForestTerrain : public Terrain {
+	virtual string getSvgColor() override;
 };

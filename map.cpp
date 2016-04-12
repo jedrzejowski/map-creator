@@ -3,13 +3,34 @@
 using namespace std;
 
 void Map::initMapArray() {
-	mapArray = new Terrain*[Width];
-	for (int i = 0; i < Width; ++i)
-		mapArray[i] = new Terrain[Height];
 };
 
 Terrain * Map::getTerrain(int x, int y) {
-	return &mapArray[x][y];
+	Terrain * temp = mapArray;
+	for (int i = 0; i < x + y*Width; i++){
+		temp = temp->Next;
+	}
+	return temp;
+};
+
+void Map::addTerrain(Terrain *terrain) {
+	if (mapArray == NULL) {
+		mapArray = terrain;
+		return;
+	}
+
+	Terrain * temp = mapArray;
+	while (true)
+	{
+		if (temp->Next == NULL) {
+
+			temp->Next = terrain;
+
+			return;
+		}
+
+		temp = temp->Next;
+	}
 };
 
 void Map::setHighestPoint(int z) {
@@ -23,46 +44,33 @@ void Map::setLowestPoint(int z) {
 void Map::readMapFromFile(string path) {
 	int wrong;
 
-	FILE * file = fopen(path.c_str(), "r");
-
-	//Wczytywanie wieloœci mapy
-	wrong = fscanf(file, "%dx%d", &Width, &Height);
-	if (!wrong) {
-		puts("B³¹d podczas wczycztywania wielkoœci mapy");
-		exit(1);
-	}
-	initMapArray();
+	ifstream file(path);
 
 	//Wczytywanie ca³ej mapy
-	int seaLvl;
-	char color[16];
-	Terrain * tempTerrain;
+	stringstream stream;
+	string line;
 
-	for (int h = 0; h < Height; h++) {
+	while (getline(file, line)) {//Height
 
-		for (int w = 0; w < Width; w++) {
+		for (int i = 0, n = 0; i < line.length(); i++) {
+			stream << line[i];
 
-			tempTerrain = getTerrain(w, h);
+			if (line[i] == ';') {
+				n++;
 
-			wrong = fscanf(file, "%d:%16[^;];", &seaLvl, color);
-			if (!wrong) {
-				printf("B³¹d podczas wczycztywania mapy");
-				exit(2);
+				if (n > Width) Width++;
+
+				addTerrain(Terrain::Create(stream));
+				
+				stream.str(std::string());
 			}
 			
-			//cout << seaLvl << ":" << color << ";";
+		};
 
-			tempTerrain->Color = string(color);
-			tempTerrain->Height = seaLvl;
-
-			setHighestPoint(seaLvl);
-			setLowestPoint(seaLvl);
-		}; 
-		fscanf(file, "");
-		//cout << endl;
+		Height++;
 	};
 
-	fclose(file);
+	file.close();
 };
 
 void Map::generateMap(string path) {
@@ -84,10 +92,11 @@ void Map::generateMap(string path) {
 				Point::Transform(w, h + 1, terrain->Height),
 				Point::Transform(w + 1, h + 1, terrain->Height),
 				Point::Transform(w + 1, h, terrain->Height),
-				terrain->Color);
+				terrain->getSvgColor());
 
 			//poziom morza
-			if (terrain->Height < 0) {
+			if (terrain->Water) {
+
 				svg.addPolygon(
 					Point::Transform(w, h),
 					Point::Transform(w, h + 1),
@@ -122,14 +131,14 @@ void Map::generateMap(string path) {
 					Point::Transform(w + 1, h, terrain->Height),
 					Point::Transform(w + 1, h, getTerrain(w + 1, h)->Height),
 					Point::Transform(w + 1, h + 1, getTerrain(w + 1, h)->Height),
-					terrain->Color);
+					terrain->getSvgColor());
 			} else {
 				svg.addPolygon(
 					Point::Transform(w + 1, h + 1, terrain->Height),
 					Point::Transform(w + 1, h, terrain->Height),
 					Point::Transform(w + 1, h, LowestPoint),
 					Point::Transform(w + 1, h + 1, LowestPoint),
-					terrain->Color);
+					terrain->getSvgColor());
 			}
 
 			if (h + 1 < Height) {
@@ -138,14 +147,14 @@ void Map::generateMap(string path) {
 					Point::Transform(w + 1, h + 1, terrain->Height),
 					Point::Transform(w + 1, h + 1, getTerrain(w, h + 1)->Height),
 					Point::Transform(w, h + 1, getTerrain(w, h + 1)->Height),
-					terrain->Color);
+					terrain->getSvgColor());
 			} else {
 				svg.addPolygon(
 					Point::Transform(w, h + 1, terrain->Height),
 					Point::Transform(w + 1, h + 1, terrain->Height),
 					Point::Transform(w + 1, h + 1, LowestPoint),
 					Point::Transform(w, h + 1, LowestPoint),
-					terrain->Color);
+					terrain->getSvgColor());
 			}
 		};
 	};

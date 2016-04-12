@@ -6,6 +6,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <list>
+#include <fstream>
 #include <sstream>
 
 #include "point.h"
