@@ -20,10 +20,6 @@ void Svg::save(string path) {
 	fclose(file);
 };
 
-void Svg::addRectangle(int x, int y, int w, int h, string color) {
-	*output << "<rect x='" << x << "' y='" << y << "' width='" << w << "' height='" << h << "' style='fill:" << color << ";' />";
-};
-
 void Svg::addPolygon(Point point1, Point point2, Point point3, Point point4, string color) {
 	*output << "<polygon points='"
 		<< point1.X << "," << point1.Y << " "

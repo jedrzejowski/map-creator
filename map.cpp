@@ -2,9 +2,6 @@
 
 using namespace std;
 
-void Map::initMapArray() {
-};
-
 Terrain * Map::getTerrain(int x, int y) {
 	Terrain * temp = mapArray;
 	for (int i = 0; i < x + y*Width; i++){
@@ -42,7 +39,6 @@ void Map::setLowestPoint(int z) {
 };
 
 void Map::readMapFromFile(string path) {
-	int wrong;
 
 	ifstream file(path);
 
@@ -53,11 +49,11 @@ void Map::readMapFromFile(string path) {
 	while (getline(file, line)) {//Height
 
 		for (int i = 0, n = 0; i < line.length(); i++) {
+
 			stream << line[i];
 
 			if (line[i] == ';') {
 				n++;
-
 				if (n > Width) Width++;
 
 				addTerrain(Terrain::Create(stream));

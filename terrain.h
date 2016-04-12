@@ -9,7 +9,6 @@ public:
 	string Type;
 	int Height;
 	bool Water;
-
 	void setHeight(int seaLvl);
 	static Terrain* Create(stringstream&data);
 
