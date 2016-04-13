@@ -1,3 +1,21 @@
+/**
+ * @file point.cpp
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 1.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z ciałami klasy Point
+ */
+
 #include "header.h"
 
 using namespace std;
@@ -16,8 +34,8 @@ Point::Point(int x, int y, int z) {
 	Z = z;
 }
 
-double trans[][2] = 
-	{ 
+double trans[][2] =
+	{
 		{ 0.6, -0.4 },
 		{ 0.4, 0.6 }
 	};
@@ -36,8 +54,4 @@ Point Point::Transform(int x, int y, int z) {
 	y = y + 5 * map.HighestPoint;
 
 	return Point(x, y);
-};
-
-Point Point::Transform(int x, int y) {
-	return Point::Transform(x, y, 0);
 };

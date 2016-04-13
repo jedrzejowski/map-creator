@@ -1,3 +1,21 @@
+/**
+ * @file terrain.cpp
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 1.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z ciałami klasy Terrain
+ */
+
 #include "header.h"
 
 using namespace std;
@@ -51,7 +69,7 @@ Terrain* Terrain::Create(stringstream&data) {
 };
 
 void Terrain::drawInSvg(Svg &svg) {
-	
+
 	svg.addPolygon(
 		Point::Transform(X, Y, Height),
 		Point::Transform(X, Y + 1, Height),
@@ -69,7 +87,7 @@ void Terrain::drawInSvg(Svg &svg) {
 			Point::Transform(X + 1, Y),
 			"rgba(173,216,230,0.5)");
 
-		//wygladzanie ko�cza poziomu morza
+		//wygladzanie ko�cza poziomu morza
 		if (X + 1 == map.Width) {
 			svg.addPolygon(
 				Point::Transform(X + 1, Y + 1),
@@ -89,7 +107,7 @@ void Terrain::drawInSvg(Svg &svg) {
 		}
 	}
 
-	//Przej�cia terenowe
+	//Przej�cia terenowe
 	if (X + 1 < map.Width) {
 		svg.addPolygon(
 			Point::Transform(X + 1, Y + 1, Height),

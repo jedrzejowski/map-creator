@@ -1,3 +1,21 @@
+/**
+ * @file svg.cpp
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 1.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z ciałami klasy Svg
+ */
+
 #include "header.h"
 
 using namespace std;
@@ -11,7 +29,7 @@ Svg::Svg(int w, int h) {
 void Svg::save(string path) {
 	FILE * file = fopen(path.c_str(), "w");
 
-	fprintf(file, "<svg xmlns='http://www.w3.org/2000/svg' width='%d' height='%d'>%s</svg>", 
+	fprintf(file, "<svg xmlns='http://www.w3.org/2000/svg' width='%d' height='%d'>%s</svg>",
 		Width, Height, output->str().c_str());
 
 	fclose(file);

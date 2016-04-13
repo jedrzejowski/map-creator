@@ -1,3 +1,21 @@
+ /**
+  * @file map.cpp
+  * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+  * @version 1.0
+  *
+  * @section LICENSE
+  *
+  * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+  * This file is part of map-creator
+  *
+  * map-creator can not be copied and/or distributed without the express
+  * permission of Adam Jędrzejowski
+  *
+  * @section DESCRIPTION
+  *
+  * Plik z ciałami klasy Map
+  */
+
 #include "header.h"
 
 using namespace std;
@@ -42,7 +60,7 @@ void Map::readMapFromFile(string path) {
 
 	ifstream file(path);
 
-	//Wczytywanie ca�ej mapy
+	//Wczytywanie ca�ej mapy
 	stringstream stream;
 	string line;
 	Terrain* tempTerrain;
@@ -61,13 +79,13 @@ void Map::readMapFromFile(string path) {
 				tempTerrain->Y = Height;
 
 				addTerrain(tempTerrain);
-				
+
 
 				n++;
 				if (n > Width) Width++;
 				stream.str(std::string());
 			}
-			
+
 		};
 
 		Height++;
@@ -81,7 +99,7 @@ void Map::generateMap(string path) {
 		Point::Transform(Width + 2, 0, LowestPoint).X,
 		Point::Transform(Width + 2, Height + 2, LowestPoint).Y
 		);
-	
+
 	for (int h = 0; h < Height; h++) {
 
 		for (int w = 0; w < Width; w++) {
@@ -93,4 +111,3 @@ void Map::generateMap(string path) {
 
 	svg.save(path);
 };
-

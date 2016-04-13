@@ -1,4 +1,6 @@
 /Debug
-.vs
+/.vs
 a.exe
-output-map.svg
+a.out
+/output-map.svg
+/docs
