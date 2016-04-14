@@ -20,31 +20,17 @@
 
 using namespace std;
 
-extern Map map;
-
 void Terrain::setHeight(int seaLvl) {
 	Height = seaLvl;
 
 	if (seaLvl < 0)Water = true;
 
-	map.setHighestPoint(seaLvl);
-	map.setLowestPoint(seaLvl);
+	Map::getInstance().setHighestPoint(seaLvl);
+	Map::getInstance().setLowestPoint(seaLvl);
 };
 
 string Terrain::getSvgColor() {
 	return "red";
-}
-
-template <char C>
-std::istream& expect(std::istream& in)
-{
-	if ((in >> std::ws).peek() == C) {
-		in.ignore();
-	}
-	else {
-		in.setstate(std::ios_base::failbit);
-	}
-	return in;
 }
 
 Terrain* Terrain::Create(stringstream&data) {
@@ -88,7 +74,7 @@ void Terrain::drawInSvg(Svg &svg) {
 			"rgba(173,216,230,0.5)");
 
 		//wygladzanie ko�cza poziomu morza
-		if (X + 1 == map.Width) {
+		if (X + 1 == Map::getInstance().Width) {
 			svg.addPolygon(
 				Point::Transform(X + 1, Y + 1),
 				Point::Transform(X + 1, Y),
@@ -97,7 +83,7 @@ void Terrain::drawInSvg(Svg &svg) {
 				"rgba(173,216,230,0.5)");
 		}
 
-		if (Y + 1 == map.Height) {
+		if (Y + 1 == Map::getInstance().Height) {
 			svg.addPolygon(
 				Point::Transform(X, Y + 1),
 				Point::Transform(X + 1, Y + 1),
@@ -108,37 +94,37 @@ void Terrain::drawInSvg(Svg &svg) {
 	}
 
 	//Przej�cia terenowe
-	if (X + 1 < map.Width) {
+	if (X + 1 < Map::getInstance().Width) {
 		svg.addPolygon(
 			Point::Transform(X + 1, Y + 1, Height),
 			Point::Transform(X + 1, Y, Height),
-			Point::Transform(X + 1, Y, map.getTerrain(X + 1, Y)->Height),
-			Point::Transform(X + 1, Y + 1, map.getTerrain(X + 1, Y)->Height),
+			Point::Transform(X + 1, Y, Map::getInstance().getTerrain(X + 1, Y)->Height),
+			Point::Transform(X + 1, Y + 1, Map::getInstance().getTerrain(X + 1, Y)->Height),
 			getSvgColor());
 	}
 	else {
 		svg.addPolygon(
 			Point::Transform(X + 1, Y + 1, Height),
 			Point::Transform(X + 1, Y, Height),
-			Point::Transform(X + 1, Y, map.LowestPoint),
-			Point::Transform(X + 1, Y + 1, map.LowestPoint),
+			Point::Transform(X + 1, Y, Map::getInstance().LowestPoint),
+			Point::Transform(X + 1, Y + 1, Map::getInstance().LowestPoint),
 			getSvgColor());
 	}
 
-	if (Y + 1 < map.Height) {
+	if (Y + 1 < Map::getInstance().Height) {
 		svg.addPolygon(
 			Point::Transform(X, Y + 1, Height),
 			Point::Transform(X + 1, Y + 1, Height),
-			Point::Transform(X + 1, Y + 1, map.getTerrain(X, Y + 1)->Height),
-			Point::Transform(X, Y + 1, map.getTerrain(X, Y + 1)->Height),
+			Point::Transform(X + 1, Y + 1, Map::getInstance().getTerrain(X, Y + 1)->Height),
+			Point::Transform(X, Y + 1, Map::getInstance().getTerrain(X, Y + 1)->Height),
 			getSvgColor());
 	}
 	else {
 		svg.addPolygon(
 			Point::Transform(X, Y + 1, Height),
 			Point::Transform(X + 1, Y + 1, Height),
-			Point::Transform(X + 1, Y + 1, map.LowestPoint),
-			Point::Transform(X, Y + 1, map.LowestPoint),
+			Point::Transform(X + 1, Y + 1, Map::getInstance().LowestPoint),
+			Point::Transform(X, Y + 1, Map::getInstance().LowestPoint),
 			getSvgColor());
 	}
 };

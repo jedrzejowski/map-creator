@@ -20,6 +20,16 @@
 
 using namespace std;
 
+Map::Map(){
+
+};
+
+Map& Map::getInstance()
+{
+	static Map instance = Map();
+	return instance;
+}
+
 Terrain * Map::getTerrain(int x, int y) {
 	Terrain * temp = mapArray;
 	for (int i = 0; i < x + y*Width; i++){
@@ -60,7 +70,7 @@ void Map::readMapFromFile(string path) {
 
 	ifstream file(path);
 
-	//Wczytywanie ca�ej mapy
+	//Wczytywanie całej mapy
 	stringstream stream;
 	string line;
 	Terrain* tempTerrain;

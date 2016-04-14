@@ -20,8 +20,6 @@
 
 using namespace std;
 
-extern Map map;
-
 Point::Point(int x, int y) {
 	X = x;
 	Y = y;
@@ -41,17 +39,17 @@ double trans[][2] =
 	};
 
 Point Point::Transform(int x, int y, int z) {
-	x = 50 * x - map.Width * 50 / 2;
-	y = 50 * y - map.Height * 50 / 2;
+	x = 50 * x - Map::getInstance().Width * 50 / 2;
+	y = 50 * y - Map::getInstance().Height * 50 / 2;
 
 	x = x * trans[0][0] + y * trans[0][1];
 	y = y * trans[1][1] + x * trans[1][0];
 
-	x = x*1.8 + map.Width * 50;
-	y = y + map.Height * 50 / 2;
+	x = x*1.8 + Map::getInstance().Width * 50;
+	y = y + Map::getInstance().Height * 50 / 2;
 
 	y = y - 5 * z;
-	y = y + 5 * map.HighestPoint;
+	y = y + 5 * Map::getInstance().HighestPoint;
 
 	return Point(x, y);
 };

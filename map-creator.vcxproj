@@ -149,6 +149,7 @@
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="input-map.csv" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="map.cpp" />
