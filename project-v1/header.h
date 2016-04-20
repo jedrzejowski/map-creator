@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 #include "point.h"
 #include "svg.h"

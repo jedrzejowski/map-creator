@@ -30,32 +30,12 @@ Map& Map::getInstance()
 	return instance;
 }
 
-Terrain * Map::getTerrain(int x, int y) {
-	Terrain * temp = mapArray;
-	for (int i = 0; i < x + y*Width; i++){
-		temp = temp->Next;
-	}
-	return temp;
+Terrain & Map::getTerrain(int x, int y) {
+	return mapVector.at(x + y*Width);
 };
 
-void Map::addTerrain(Terrain *terrain) {
-	if (mapArray == NULL) {
-		mapArray = terrain;
-		return;
-	}
-
-	Terrain * temp = mapArray;
-	while (true)
-	{
-		if (temp->Next == NULL) {
-
-			temp->Next = terrain;
-
-			return;
-		}
-
-		temp = temp->Next;
-	}
+void Map::addTerrain(Terrain& terrain) {
+	mapVector.push_back(terrain);
 };
 
 void Map::setHighestPoint(int z) {

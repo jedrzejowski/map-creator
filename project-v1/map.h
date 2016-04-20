@@ -26,7 +26,7 @@ using namespace std;
  */
 class Map {
 private:
-	Terrain* mapArray; //<! Wskażnik do pierwszego elementu listy z klockami terenowymi
+	vector<Terrain> mapVector; //<! Wskażnik do pierwszego elementu listy z klockami terenowymi
 	Map();
 public:
 	int Height = 0, //<! Wysokość mapy w jednostkach
@@ -52,9 +52,9 @@ public:
 	 * Zwraca teren o zadanych wspołrzędnych
 	 * @param  x X
 	 * @param  y Y
-	 * @return   Wskaźnik do terenu
+	 * @return   Referencje do terenu
 	 */
-	Terrain * getTerrain(int x, int y);
+	Terrain & getTerrain(int x, int y);
 
 	/**
 	 * Dodaje teren do mapy

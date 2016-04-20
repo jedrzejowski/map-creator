@@ -26,7 +26,7 @@ using namespace std;
  */
 class Map {
 private:
-	Terrain* mapArray; //<! Wskażnik do pierwszego elementu listy z klockami terenowymi
+	vector<Terrain> mapArray; //<! Wskażnik do pierwszego elementu listy z klockami terenowymi
 	Map();
 public:
 	int Height = 0, //<! Wysokość mapy w jednostkach
