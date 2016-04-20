@@ -2,7 +2,7 @@
  * @file header.h
  * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
  * @version 1.0
- *
+ * 
  * @section LICENSE
  *
  * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
