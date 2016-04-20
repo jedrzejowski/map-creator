@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{41BA934F-BD4C-4528-BD97-418A5FA3C687}</ProjectGuid>
+    <ProjectGuid>{0F965670-8E8E-4FE5-A7FE-59F9FBA7CD8E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ConsoleApplication1</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>project-v2</ProjectName>
+    <ProjectName>project-v1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="input-map.csv" />
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
