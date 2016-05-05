@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="program.cpp" />
+    <ClCompile Include="map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="settings.cpp">
+      <Filter>settings</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="map-gen.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header.h" />
+    <ClInclude Include="map.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="settings.h">
+      <Filter>settings</Filter>
+    </ClInclude>
+    <ClInclude Include="error-code.h" />
+    <ClInclude Include="terrain.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="input.ini" />
+    <None Include="playfulljs.com.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="map">
+      <UniqueIdentifier>{9d2b18b6-2a97-4d21-aede-719f63662dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="settings">
+      <UniqueIdentifier>{f411fed5-3d36-4478-95c8-7376cc2fe006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain">
+      <UniqueIdentifier>{7402fe84-d5a1-41d7-9236-8379a791f770}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\sand">
+      <UniqueIdentifier>{bbd60495-9eda-4f63-8a5d-726c43720613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\rocky">
+      <UniqueIdentifier>{9bf143c9-0981-43af-a1f3-f73ca8c451a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\rocky\mountain">
+      <UniqueIdentifier>{6894261f-fdb6-4912-9043-6a4c6ccec703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\plant">
+      <UniqueIdentifier>{20f3739a-8b3a-48b7-ab3d-579e94230597}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
