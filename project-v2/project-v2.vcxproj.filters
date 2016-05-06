@@ -14,6 +14,18 @@
     <ClCompile Include="map-gen.cpp">
       <Filter>map</Filter>
     </ClCompile>
+    <ClCompile Include="svg.cpp">
+      <Filter>svg</Filter>
+    </ClCompile>
+    <ClCompile Include="point.cpp">
+      <Filter>svg</Filter>
+    </ClCompile>
+    <ClCompile Include="map-draw.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="perlin.cpp">
+      <Filter>perlin</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -26,6 +38,15 @@
     <ClInclude Include="error-code.h" />
     <ClInclude Include="terrain.h">
       <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="svg.h">
+      <Filter>svg</Filter>
+    </ClInclude>
+    <ClInclude Include="point.h">
+      <Filter>svg</Filter>
+    </ClInclude>
+    <ClInclude Include="perlin.h">
+      <Filter>perlin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +74,12 @@
     </Filter>
     <Filter Include="terrain\plant">
       <UniqueIdentifier>{20f3739a-8b3a-48b7-ab3d-579e94230597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg">
+      <UniqueIdentifier>{0797fc2d-bb9c-4f3f-9676-ccd4dc4e1c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="perlin">
+      <UniqueIdentifier>{66894196-f40f-4e68-8e0a-dadd423f8671}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

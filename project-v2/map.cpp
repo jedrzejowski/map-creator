@@ -2,7 +2,9 @@
 
 using namespace std;
 
-Map::Map() {  }
+Map::Map(){
+	outputImage = new Svg(100000, 100000);
+};
 
 Map& Map::GetInstance()
 {
@@ -26,14 +28,14 @@ void Map::SetArgs(int argc, char* argv[]) {
 	}
 }
 
-BaseTerrain* Map::getTerrain(int x, int y) {
+BaseTerrain& Map::getTerrain(int x, int y) {
 	if (x < 0) x = 0;
 	if (y < 0) y = 0;
 
-	if (x > getWidth()) x = getWidth();
-	if (y > getLength()) y = getLength();
+	if (x >= getWidth()) x = getWidth() - 1;
+	if (y >= getLength()) y = getLength() - 1;
 
-	return &surface[x][y];
+	return surface.at(x).at(y);
 }
 
 int Map::getWidth() {

@@ -7,16 +7,17 @@ class Map {
 private:
 	Settings mapSettings;
 	Map();
-	BaseTerrain** surface;
+	vector<vector<BaseTerrain>> surface;
+	Svg* outputImage;
 
 public:
 	static Map& GetInstance();
 	void SetArgs(int argc, char* argv[]);
 
 	void GenerateSurface();
+	void DrawMap(string path);
 
-
-	BaseTerrain* getTerrain(int x, int y);
+	BaseTerrain& getTerrain(int x, int y);
 
 	//Settings
 	int getLength();

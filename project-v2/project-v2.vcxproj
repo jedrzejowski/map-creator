@@ -138,17 +138,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="map-draw.cpp" />
     <ClCompile Include="map-gen.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="perlin.cpp" />
+    <ClCompile Include="point.cpp" />
     <ClCompile Include="program.cpp" />
     <ClCompile Include="settings.cpp" />
+    <ClCompile Include="svg.cpp" />
     <ClCompile Include="terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="error-code.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="map.h" />
+    <ClInclude Include="perlin.h" />
+    <ClInclude Include="point.h" />
     <ClInclude Include="settings.h" />
+    <ClInclude Include="svg.h" />
     <ClInclude Include="terrain.h" />
   </ItemGroup>
   <ItemGroup>

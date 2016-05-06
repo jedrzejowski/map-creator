@@ -25,3 +25,18 @@ void BaseTerrain::setY(int val) {
 void BaseTerrain::setZ(int val) {
 	Z = val;
 }
+
+BaseTerrain::BaseTerrain() { }
+
+BaseTerrain::BaseTerrain(int x, int y) {
+	setX(x);
+	setY(y);
+
+	setZ(rand() % Map::GetInstance().getHeightDiff());
+}
+
+BaseTerrain::BaseTerrain(int x, int y, int z) {
+	setX(x);
+	setY(y);
+	setZ(z);
+}

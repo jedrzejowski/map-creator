@@ -8,8 +8,14 @@
 #include <sstream>
 #include <math.h>
 #include <time.h>
+#include <vector>
 
-#include "terrain.h"
+
 #include "error-code.h"
+
+#include "point.h"
+#include "svg.h"
+#include "terrain.h"
 #include "settings.h"
+
 #include "map.h"
