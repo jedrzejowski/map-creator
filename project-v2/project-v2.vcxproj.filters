@@ -26,6 +26,15 @@
     <ClCompile Include="perlin.cpp">
       <Filter>perlin</Filter>
     </ClCompile>
+    <ClCompile Include="map-gset.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="svg-figures.cpp">
+      <Filter>svg</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain-water.cpp">
+      <Filter>terrain\water</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -48,6 +57,13 @@
     <ClInclude Include="perlin.h">
       <Filter>perlin</Filter>
     </ClInclude>
+    <ClInclude Include="color.h" />
+    <ClInclude Include="svg-figures.h">
+      <Filter>svg</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain-water.h">
+      <Filter>terrain\water</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />
@@ -63,23 +79,29 @@
     <Filter Include="terrain">
       <UniqueIdentifier>{7402fe84-d5a1-41d7-9236-8379a791f770}</UniqueIdentifier>
     </Filter>
-    <Filter Include="terrain\sand">
-      <UniqueIdentifier>{bbd60495-9eda-4f63-8a5d-726c43720613}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\rocky">
-      <UniqueIdentifier>{9bf143c9-0981-43af-a1f3-f73ca8c451a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\rocky\mountain">
-      <UniqueIdentifier>{6894261f-fdb6-4912-9043-6a4c6ccec703}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\plant">
-      <UniqueIdentifier>{20f3739a-8b3a-48b7-ab3d-579e94230597}</UniqueIdentifier>
-    </Filter>
     <Filter Include="svg">
       <UniqueIdentifier>{0797fc2d-bb9c-4f3f-9676-ccd4dc4e1c62}</UniqueIdentifier>
     </Filter>
     <Filter Include="perlin">
       <UniqueIdentifier>{66894196-f40f-4e68-8e0a-dadd423f8671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\water">
+      <UniqueIdentifier>{2b63fad0-3203-4f76-91c8-3f7feec0e1c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land">
+      <UniqueIdentifier>{7ed562a7-250e-4135-9351-2ae294d1fe78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\rocky">
+      <UniqueIdentifier>{9bf143c9-0981-43af-a1f3-f73ca8c451a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\rocky\mountain">
+      <UniqueIdentifier>{6894261f-fdb6-4912-9043-6a4c6ccec703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\rocky\sand">
+      <UniqueIdentifier>{bbd60495-9eda-4f63-8a5d-726c43720613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\rocky\upland">
+      <UniqueIdentifier>{7c482482-15de-4ab5-acff-256ec1c09392}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
