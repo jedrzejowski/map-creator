@@ -39,17 +39,17 @@ double trans[][2] =
 	};
 
 Point Point::Transform(int x, int y, int z) {
-	x = 50 * x - Map::GetInstance().getWidth() * 50 / 2;
-	y = 50 * y - Map::GetInstance().getLength() * 50 / 2;
+	x = 50 * x - Map::GetInstance().GetWidth() * 50 / 2;
+	y = 50 * y - Map::GetInstance().GetLength() * 50 / 2;
 
 	x = x * trans[0][0] + y * trans[0][1];
 	y = y * trans[1][1] + x * trans[1][0];
 
-	x = x*1.8 + Map::GetInstance().getWidth() * 50;
-	y = y + Map::GetInstance().getLength() * 50 / 2;
+	x = x*1.8 + Map::GetInstance().GetWidth() * 50;
+	y = y + Map::GetInstance().GetLength() * 50 / 2;
 
-	y = y - 5 * z;
-	y = y + 5 * Map::GetInstance().getMaxHeight();
+	y = y - 3 * z;
+	y = y + 3 * Map::GetInstance().GetMaxHeight();
 
 	return Point(x, y);
 };

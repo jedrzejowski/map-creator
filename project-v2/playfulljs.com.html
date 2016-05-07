@@ -12,7 +12,7 @@
         this.max = this.size - 1;
         this.map = new Float32Array(this.size * this.size);
       }
-      Terrain.prototype.get = function(x, y) {
+      Terrain.prototype.Get = function(x, y) {
         if (x < 0 || x > this.max || y < 0 || y > this.max) return -1;
         return this.map[x + this.size * y];
       };
@@ -49,19 +49,19 @@
         }
         function square(x, y, size, offset) {
           var ave = average([
-            self.get(x - size, y - size),   // upper left
-            self.get(x + size, y - size),   // upper right
-            self.get(x + size, y + size),   // lower right
-            self.get(x - size, y + size)    // lower left
+            self.Get(x - size, y - size),   // upper left
+            self.Get(x + size, y - size),   // upper right
+            self.Get(x + size, y + size),   // lower right
+            self.Get(x - size, y + size)    // lower left
           ]);
           self.set(x, y, ave + offset);
         }
         function diamond(x, y, size, offset) {
           var ave = average([
-            self.get(x, y - size),      // top
-            self.get(x + size, y),      // right
-            self.get(x, y + size),      // bottom
-            self.get(x - size, y)       // left
+            self.Get(x, y - size),      // top
+            self.Get(x + size, y),      // right
+            self.Get(x, y + size),      // bottom
+            self.Get(x - size, y)       // left
           ]);
           self.set(x, y, ave + offset);
         }
@@ -71,11 +71,11 @@
         var waterVal = this.size * 0.3;
         for (var y = 0; y < this.size; y++) {
           for (var x = 0; x < this.size; x++) {
-            var val = this.get(x, y);
+            var val = this.Get(x, y);
             var top = project(x, y, val);
             var bottom = project(x + 1, y, 0);
             var water = project(x, y, waterVal);
-            var style = brightness(x, y, this.get(x + 1, y) - val);
+            var style = brightness(x, y, this.Get(x + 1, y) - val);
             rect(top, bottom, style);
             rect(water, bottom, 'rgba(50, 150, 200, 0.15)');
           }
@@ -109,8 +109,8 @@
           };
         }
       };
-      var display = document.getElementById('display');
-      var ctx = display.getContext('2d');
+      var display = document.GetElementById('display');
+      var ctx = display.GetContext('2d');
       var width = display.width = window.innerWidth;
       var height = display.height = window.innerHeight;
       var terrain = new Terrain(9);

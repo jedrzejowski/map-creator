@@ -3,7 +3,9 @@
 using namespace std;
 
 Map::Map(){
-	outputImage = new Svg(100000, 100000);
+	srand(time(NULL));
+
+	mapSettings = new Settings();
 };
 
 Map& Map::GetInstance()
@@ -12,14 +14,18 @@ Map& Map::GetInstance()
 	return instance;
 }
 
+
 void Map::SetArgs(int argc, char* argv[]) {
 	if (argc == 1) {
-		cout << "Default input file: 'input.ini'" << endl;
-		mapSettings.readFromFile("input.ini");
+		cout << ANSI_COLOR_MAGENTA  "Default input file: 'input.ini'" ANSI_COLOR_RESET << endl;
+		
+		mapSettings->ReadFromFile(DEFAULT_INPUT_FILE);
+		return;
 	}
 
 	if (argc == 2) {
-		mapSettings.readFromFile(string(argv[1]));
+		mapSettings->ReadFromFile(string(argv[1]));
+		return;
 	}
 
 	if (argc > 2) {
@@ -28,36 +34,13 @@ void Map::SetArgs(int argc, char* argv[]) {
 	}
 }
 
-BaseTerrain& Map::getTerrain(int x, int y) {
+
+BaseTerrain& Map::GetTerrain(int x, int y) {
 	if (x < 0) x = 0;
 	if (y < 0) y = 0;
 
-	if (x >= getWidth()) x = getWidth() - 1;
-	if (y >= getLength()) y = getLength() - 1;
+	if (x >= GetWidth()) x = GetWidth() - 1;
+	if (y >= GetLength()) y = GetLength() - 1;
 
 	return surface.at(x).at(y);
-}
-
-int Map::getWidth() {
-	return mapSettings.X;
-}
-
-int Map::getLength() {
-	return mapSettings.Y;
-}
-
-int Map::getMinHeight() {
-	return mapSettings.Z1;
-}
-
-int Map::getMaxHeight() {
-	return mapSettings.Z2;
-}
-
-int Map::getHeightDiff() {
-	return getMaxHeight() + getMinHeight();
-}
-
-double Map::getRoughness() {
-	return mapSettings.Roughness;
 }

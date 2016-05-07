@@ -43,3 +43,13 @@ void Svg::addPolygon(Point point1, Point point2, Point point3, Point point4, str
 		<< point4.X << "," << point4.Y << "' "
 		<< "style='fill:" << color << ";stroke:white;stroke-width:0.3' />";
 };
+
+void Svg::addPolygon(Polygon& polygon) {
+	int points = polygon.Angles();
+	(*output) << "<polygon points='";
+
+	for (int i = 0; i < points; i++)
+		(*output) << polygon.Points[i].X << "," << polygon.Points[i].Y << " ";
+
+	(*output) << "' style='fill:" << polygon.FillColor() << ";stroke:white;stroke-width:0.3' />";
+}

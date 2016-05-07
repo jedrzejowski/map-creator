@@ -9,13 +9,17 @@ public:
 	BaseTerrain(int x, int y);
 	BaseTerrain(int x, int y, int z);
 
-	int getX();
-	int getY();
-	int getZ();
+	int GetX();
+	int GetY();
+	int GetZ();
 
-	void setX(int val);
-	void setY(int val);
-	void setZ(int val);
-	//virtual void DrawOn();
+	void SetX(int val);
+	void SetY(int val);
+	void SetZ(int val);
+
+	virtual string GetSubsoil();
+	
+	
+	virtual void DrawOn(Svg* svgImage);
 
 };

@@ -1,5 +1,6 @@
 #pragma once
 #include "header.h"
+#include "svg-figures.h"
 
 using namespace std;
 
@@ -35,4 +36,6 @@ public:
 	* @param point4 czwarty punkt wielok¹tu
 	*/
 	void addPolygon(Point point1, Point point2, Point point3, Point point4, string color);
+
+	void addPolygon(Polygon& polygon);
 };

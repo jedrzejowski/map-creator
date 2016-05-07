@@ -6,8 +6,11 @@ using namespace std;
 class Settings {
 public:
 	int X, Y, Z1, Z2;
-	double Roughness;
 
-	void readFromFile(string path);
+	double persistence, frequency, amplitude;
+	int octaves, randomseed;
 
+	Settings();
+
+	void ReadFromFile(string path);
 };

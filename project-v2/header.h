@@ -10,12 +10,19 @@
 #include <time.h>
 #include <vector>
 
+#include "color.h"
+
+#define DEFAULT_INPUT_FILE "input.ini"
 
 #include "error-code.h"
 
+#include "perlin.h"
+
 #include "point.h"
 #include "svg.h"
-#include "terrain.h"
 #include "settings.h"
+
+#include "terrain.h"
+#include "terrain-water.h"
 
 #include "map.h"

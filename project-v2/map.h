@@ -5,9 +5,10 @@ using namespace std;
 
 class Map {
 private:
-	Settings mapSettings;
 	Map();
 	vector<vector<BaseTerrain>> surface;
+
+	Settings* mapSettings;
 	Svg* outputImage;
 
 public:
@@ -17,13 +18,14 @@ public:
 	void GenerateSurface();
 	void DrawMap(string path);
 
-	BaseTerrain& getTerrain(int x, int y);
+	BaseTerrain& GetTerrain(int x, int y);
+	void SetTerrain(int x, int y, BaseTerrain& terrain);
 
 	//Settings
-	int getLength();
-	int getWidth();
-	int getMaxHeight();
-	int getMinHeight();
-	int getHeightDiff();
-	double getRoughness();
+	int GetLength();
+	int GetWidth();
+	int GetMaxHeight();
+	int GetMinHeight();
+	int GetHeightDiff();
+	
 };

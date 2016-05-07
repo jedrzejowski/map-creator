@@ -3,6 +3,20 @@
 //https://en.wikipedia.org/wiki/Perlin_noise
 //http://stackoverflow.com/questions/4753055/perlin-noise-generation-for-terrain
 
+/* Getter && Setters */
+
+double PerlinNoise::GetPersistence() const { return persistence; }
+double PerlinNoise::GetFrequency() const { return frequency; }
+double PerlinNoise::GetAmplitude() const { return amplitude; }
+int PerlinNoise::GetOctaves() const { return octaves; }
+int PerlinNoise::GetRandomSeed() const { return randomseed; }
+
+void PerlinNoise::SetPersistence(double _persistence) { persistence = _persistence; }
+void PerlinNoise::SetFrequency(double _frequency) { frequency = _frequency; }
+void PerlinNoise::SetAmplitude(double _amplitude) { amplitude = _amplitude; }
+void PerlinNoise::SetOctaves(int _octaves) { octaves = _octaves; }
+void PerlinNoise::SetRandomSeed(int _randomseed) { randomseed = _randomseed; }
+
 PerlinNoise::PerlinNoise()
 {
 	persistence = 0;
