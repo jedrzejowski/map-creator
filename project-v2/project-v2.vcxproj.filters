@@ -17,9 +17,6 @@
     <ClCompile Include="svg.cpp">
       <Filter>svg</Filter>
     </ClCompile>
-    <ClCompile Include="point.cpp">
-      <Filter>svg</Filter>
-    </ClCompile>
     <ClCompile Include="map-draw.cpp">
       <Filter>map</Filter>
     </ClCompile>
@@ -29,9 +26,6 @@
     <ClCompile Include="map-gset.cpp">
       <Filter>map</Filter>
     </ClCompile>
-    <ClCompile Include="svg-figures.cpp">
-      <Filter>svg</Filter>
-    </ClCompile>
     <ClCompile Include="terrain-water.cpp">
       <Filter>terrain\water</Filter>
     </ClCompile>
@@ -40,6 +34,21 @@
     </ClCompile>
     <ClCompile Include="terrain-deep.cpp">
       <Filter>terrain\water\deep</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain-sand.cpp">
+      <Filter>terrain\land\sand</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain-rocky.cpp">
+      <Filter>terrain\land\rocky</Filter>
+    </ClCompile>
+    <ClCompile Include="point.cpp">
+      <Filter>svg\point</Filter>
+    </ClCompile>
+    <ClCompile Include="svg-figures.cpp">
+      <Filter>svg\figure</Filter>
+    </ClCompile>
+    <ClCompile Include="color.cpp">
+      <Filter>svg\color</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -57,15 +66,8 @@
     <ClInclude Include="svg.h">
       <Filter>svg</Filter>
     </ClInclude>
-    <ClInclude Include="point.h">
-      <Filter>svg</Filter>
-    </ClInclude>
     <ClInclude Include="perlin.h">
       <Filter>perlin</Filter>
-    </ClInclude>
-    <ClInclude Include="color.h" />
-    <ClInclude Include="svg-figures.h">
-      <Filter>svg</Filter>
     </ClInclude>
     <ClInclude Include="terrain-water.h">
       <Filter>terrain\water</Filter>
@@ -76,10 +78,26 @@
     <ClInclude Include="terrain-deep.h">
       <Filter>terrain\water\deep</Filter>
     </ClInclude>
+    <ClInclude Include="terrain-sand.h">
+      <Filter>terrain\land\sand</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain-rocky.h">
+      <Filter>terrain\land\rocky</Filter>
+    </ClInclude>
+    <ClInclude Include="point.h">
+      <Filter>svg\point</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-figures.h">
+      <Filter>svg\figure</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>svg\color</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />
     <None Include="playfulljs.com.html" />
+    <None Include="svg-to-png.js" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="map">
@@ -115,11 +133,20 @@
     <Filter Include="terrain\land\rocky\upland">
       <UniqueIdentifier>{7c482482-15de-4ab5-acff-256ec1c09392}</UniqueIdentifier>
     </Filter>
-    <Filter Include="terrain\land\beach">
-      <UniqueIdentifier>{ef830ce6-7143-4f4c-ac0e-125bbb06338b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="terrain\water\deep">
       <UniqueIdentifier>{7feb1593-c22d-48f0-b944-c90589a7a835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\sand">
+      <UniqueIdentifier>{ef830ce6-7143-4f4c-ac0e-125bbb06338b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\point">
+      <UniqueIdentifier>{94469a22-fadc-4dbd-bc87-d06849fc6a32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\color">
+      <UniqueIdentifier>{7db53871-e799-4d98-98ae-92493b781cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\figure">
+      <UniqueIdentifier>{c320f801-4315-4c32-9da7-2e333cee7d37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

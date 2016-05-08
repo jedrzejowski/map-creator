@@ -3,7 +3,6 @@
 
 void Polygon::Clear() {
 	Points.clear();
-	Fill = "red";
 }
 
 void Polygon::AddPoint(Point point) {
@@ -14,6 +13,6 @@ int Polygon::Angles() {
 	return Points.size();
 }
 
-string Polygon::FillColor() {
+Color Polygon::FillColor() {
 	return Fill;
 }

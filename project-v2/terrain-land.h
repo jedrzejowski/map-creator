@@ -3,9 +3,10 @@
 
 class LandTerrain : public BaseTerrain {
 public:
+	LandTerrain() { };
 	LandTerrain(BaseTerrain& terrain);
 
-	virtual string GetSubsoil() { return "green"; }
+	virtual Color GetBaseColor();
 
 	//virtual void DrawOn(Svg* scgImage);
 };

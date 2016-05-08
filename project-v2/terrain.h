@@ -24,7 +24,7 @@ public:
 	void SetY(int val);
 	void SetZ(int val);
 
-	virtual string GetSubsoil();
+	virtual Color GetBaseColor();
 	
 	
 	virtual void DrawOn(Svg* svgImage);

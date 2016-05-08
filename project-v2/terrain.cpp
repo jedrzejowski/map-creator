@@ -27,8 +27,8 @@ void BaseTerrain::SetX(int val) { X = val; }
 void BaseTerrain::SetY(int val) { Y = val; }
 void BaseTerrain::SetZ(int val) { Z = val; }
 
-string BaseTerrain::GetSubsoil() { 
-	return "black";
+Color BaseTerrain::GetBaseColor() {
+	return Color();
 }
 
 template <typename T>
@@ -56,7 +56,7 @@ void BaseTerrain::DrawOn(Svg* svgImage) {
 	polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, GetZ()));
 	polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
 	polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
-	polygon.Fill = GetSubsoil();
+	polygon.Fill = GetBaseColor();
 	svgImage->addPolygon(polygon);
 
 	//Klocek ni¿ej na X
@@ -67,7 +67,7 @@ void BaseTerrain::DrawOn(Svg* svgImage) {
 		polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
 		polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, tempTer->GetZ()));
 		polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), tempTer->GetZ()));
-		polygon.Fill = GetSubsoil();
+		polygon.Fill = GetBaseColor();
 		svgImage->addPolygon(polygon);
 	}
 
@@ -79,7 +79,7 @@ void BaseTerrain::DrawOn(Svg* svgImage) {
 		polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
 		polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, tempTer->GetZ()));
 		polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, tempTer->GetZ()));
-		polygon.Fill = GetSubsoil();
+		polygon.Fill = GetBaseColor();
 		svgImage->addPolygon(polygon);
 	}
 	

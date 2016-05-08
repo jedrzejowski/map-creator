@@ -8,13 +8,13 @@ class Figure {
 class Polygon : public Figure {
 public:
 	vector<Point> Points;
-	string Fill;
+	Color Fill;
 
 	void Clear();
 
 	void AddPoint(Point point);
 
 	int Angles();
-	string FillColor();
+	Color FillColor();
 
 };

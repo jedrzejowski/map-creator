@@ -4,6 +4,6 @@ DeepTerrain::DeepTerrain(WaterTerrain& base){
 	InsertConstructor(base);
 }
 
-string DeepTerrain::GetWaterColor() {
-	return "rgba(124,183,243,0.75)";
+Color DeepTerrain::GetWaterColor() {
+	return Color(124,183,243,0.75);
 }

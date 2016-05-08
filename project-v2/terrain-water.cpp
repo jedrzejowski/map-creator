@@ -10,12 +10,12 @@ WaterTerrain::WaterTerrain(BaseTerrain& base) {
 
 }
 
-string WaterTerrain::GetSubsoil() { 
-	return "goldenrod"; 
+Color WaterTerrain::GetBaseColor() {
+	return Color(255,200,0); 
 }
 
-string WaterTerrain::GetWaterColor() {
-	return "rgba(173,216,230,0.75)";
+Color WaterTerrain::GetWaterColor() {
+	return Color(173,216,230,0.75);
 }
 
 void WaterTerrain::DrawOn(Svg* svgImage) {

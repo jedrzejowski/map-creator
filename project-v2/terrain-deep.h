@@ -5,5 +5,5 @@ class DeepTerrain : public WaterTerrain {
 public:
 	DeepTerrain(WaterTerrain& terrain);
 
-	virtual string GetWaterColor();
+	virtual Color GetWaterColor();
 };

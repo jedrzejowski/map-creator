@@ -3,5 +3,10 @@ Debug
 a.exe
 a.out
 output-map.svg
+output.svg
+output.png
 docs
 map-creator.sdf
+map-creator.VC.db
+ipch
+node_modules

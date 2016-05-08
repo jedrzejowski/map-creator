@@ -1,21 +1,23 @@
 #pragma once
 
 #include <string>
-#include <stdio.h>
 #include <iostream>
-#include <stdlib.h>
 #include <fstream>
 #include <sstream>
 #include <math.h>
 #include <time.h>
 #include <vector>
 #include <typeinfo>
-
-#include "color.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 #define DEFAULT_INPUT_FILE "input.ini"
 
 #include "error-code.h"
+
+#include "color.h"
 
 #include "perlin.h"
 
@@ -27,5 +29,7 @@
 #include "terrain-water.h"
 #include "terrain-land.h"
 #include "terrain-deep.h"
+#include "terrain-sand.h"
+#include "terrain-rocky.h"
 
 #include "map.h"

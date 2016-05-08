@@ -6,8 +6,8 @@ public:
 	WaterTerrain() {};
 	WaterTerrain(BaseTerrain& terrain);
 
-	virtual string GetSubsoil();
-	virtual string GetWaterColor();
+	virtual Color GetBaseColor();
+	virtual Color GetWaterColor();
 	
 	virtual void DrawOn(Svg* scgImage);
 };

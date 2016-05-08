@@ -51,5 +51,5 @@ void Svg::addPolygon(Polygon& polygon) {
 	for (int i = 0; i < points; i++)
 		(*output) << polygon.Points[i].X << "," << polygon.Points[i].Y << " ";
 
-	(*output) << "' style='fill:" << polygon.FillColor() << ";stroke:white;stroke-width:0.3' />";
+	(*output) << "' style='fill:" << polygon.FillColor().ToString() << ";stroke:white;stroke-width:0.3' />";
 }
