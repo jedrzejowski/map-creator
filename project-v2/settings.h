@@ -5,10 +5,10 @@ using namespace std;
 
 class Settings {
 public:
-	int X, Y, Z1, Z2;
+	int Width, Length;
 
-	double persistence, frequency, amplitude;
-	int octaves, randomseed;
+	double Persistence, Frequency, Amplitude;
+	int Octaves, Randomseed;
 
 	Settings();
 

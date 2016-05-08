@@ -49,7 +49,7 @@ Point Point::Transform(int x, int y, int z) {
 	y = y + Map::GetInstance().GetLength() * 50 / 2;
 
 	y = y - 3 * z;
-	y = y + 3 * Map::GetInstance().GetMaxHeight();
+	y = y + 3 * Map::GetInstance().GetAmplitude() / 1.5;
 
 	return Point(x, y);
 };

@@ -1,13 +1,9 @@
 #include "header.h"
 
 
-int Map::GetWidth() { return mapSettings->X; }
+int Map::GetWidth() { return mapSettings->Width; }
 
-int Map::GetLength() { return mapSettings->Y; }
+int Map::GetLength() { return mapSettings->Length; }
 
-int Map::GetMinHeight() { return mapSettings->Z1; }
-
-int Map::GetMaxHeight() { return mapSettings->Z2; }
-
-int Map::GetHeightDiff() { return GetMaxHeight() + GetMinHeight(); }
+int Map::GetAmplitude() { return mapSettings->Amplitude; }
 

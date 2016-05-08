@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -148,6 +148,8 @@
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="svg-figures.cpp" />
     <ClCompile Include="svg.cpp" />
+    <ClCompile Include="terrain-deep.cpp" />
+    <ClCompile Include="terrain-land.cpp" />
     <ClCompile Include="terrain-water.cpp" />
     <ClCompile Include="terrain.cpp" />
   </ItemGroup>
@@ -161,6 +163,8 @@
     <ClInclude Include="settings.h" />
     <ClInclude Include="svg-figures.h" />
     <ClInclude Include="svg.h" />
+    <ClInclude Include="terrain-deep.h" />
+    <ClInclude Include="terrain-land.h" />
     <ClInclude Include="terrain-water.h" />
     <ClInclude Include="terrain.h" />
   </ItemGroup>

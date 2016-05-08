@@ -9,6 +9,7 @@
 #include <math.h>
 #include <time.h>
 #include <vector>
+#include <typeinfo>
 
 #include "color.h"
 
@@ -24,5 +25,7 @@
 
 #include "terrain.h"
 #include "terrain-water.h"
+#include "terrain-land.h"
+#include "terrain-deep.h"
 
 #include "map.h"

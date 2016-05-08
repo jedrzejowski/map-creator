@@ -4,10 +4,17 @@
 class BaseTerrain {
 	int X, Y, Z;
 
+protected:
+	void InsertConstructor(BaseTerrain& base);
+
+	template <typename T>
+	bool is(T className);
+
 public:
 	BaseTerrain();
-	BaseTerrain(int x, int y);
 	BaseTerrain(int x, int y, int z);
+
+	void Init();
 
 	int GetX();
 	int GetY();

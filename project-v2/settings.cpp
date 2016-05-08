@@ -3,15 +3,14 @@
 using namespace std;
 
 Settings::Settings() {
-	X = 50;
-	Y = 50;
-	Z1 = -25;
-	Z2 = 50;
+	Width = 50;
+	Length = 50;
+	Amplitude = 50;
 
-	persistence = 1;
-	frequency = 0.05;
-	octaves = 3;
-	randomseed = rand();
+	Persistence = 1;
+	Frequency = 0.05;
+	Octaves = 3;
+	Randomseed = rand();
 }
 
 
@@ -50,42 +49,37 @@ void Settings::ReadFromFile(string path) {
 			//Setting vals
 
 			if (!prop.compare("lenght")) {
-				X = stoi(val);
+				Width = stoi(val);
 				continue;
 			}
 
 			if (!prop.compare("width")) {
-				Y = stoi(val);
+				Length = stoi(val);
 				continue;
 			}
 
-			if (!prop.compare("minheight")) {
-				Z1 = stoi(val);
-				continue;
-			}
-
-			if (!prop.compare("maxheight")) {
-				Z2 = std::stoi(val);
+			if (!prop.compare("amplitude")) {
+				Amplitude = stod(val);
 				continue;
 			}
 
 			if (!prop.compare("persistence")) {
-				persistence = std::stod(val);
+				Persistence = std::stod(val);
 				continue;
 			}
 
 			if (!prop.compare("frequency")) {
-				frequency = std::stod(val);
+				Frequency = std::stod(val);
 				continue;
 			}
 
 			if (!prop.compare("octaves")) {
-				octaves = std::stoi(val);
+				Octaves = std::stoi(val);
 				continue;
 			}
 
 			if (!prop.compare("randomseed")) {
-				randomseed = std::stoi(val);
+				Randomseed = std::stoi(val);
 				continue;
 			}
 
@@ -103,13 +97,12 @@ printSettings:
 	#define SETTINGS_PRINTF_INT    ANSI_COLOR_CYAN "  %-15s" ANSI_COLOR_RESET " = %d\n"
 	#define SETTINGS_PRINTF_DOUBLE ANSI_COLOR_CYAN "  %-15s" ANSI_COLOR_RESET " = %f\n"
 
-	printf(SETTINGS_PRINTF_INT, "length", X);
-	printf(SETTINGS_PRINTF_INT, "width", Y);
-	printf(SETTINGS_PRINTF_INT, "min-height", Z1);
-	printf(SETTINGS_PRINTF_INT, "max-height", Z2);
+	printf(SETTINGS_PRINTF_INT, "width", Width);
+	printf(SETTINGS_PRINTF_INT, "length", Length);
+	printf(SETTINGS_PRINTF_INT, "amplitude", Amplitude);
 
-	printf(SETTINGS_PRINTF_DOUBLE, "persistence", persistence);
-	printf(SETTINGS_PRINTF_DOUBLE, "frequency", frequency);
-	printf(SETTINGS_PRINTF_INT, "octaves", octaves);
-	printf(SETTINGS_PRINTF_INT, "randomseed", randomseed);
+	printf(SETTINGS_PRINTF_DOUBLE, "persistence", Persistence);
+	printf(SETTINGS_PRINTF_DOUBLE, "frequency", Frequency);
+	printf(SETTINGS_PRINTF_INT, "octaves", Octaves);
+	printf(SETTINGS_PRINTF_INT, "randomseed", Randomseed);
 }

@@ -1,0 +1,10 @@
+9:mountain:light;7:mountain:light;6:mountain:light;4:mountain:dark;4:mountain:dark;3:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;3:forest:normal;3:forest:normal;
+7:mountain:light;6:mountain:light;5:mountain:dark;4:mountain:dark;3:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;2:forest:normal;2:forest:normal;3:forest:normal;
+6:mountain:light;5:mountain:dark;4:mountain:dark;3:forest:dark;3:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;2:forest:normal;2:forest:normal;2:forest:normal;2:forest:normal;
+4:mountain:dark;4:mountain:dark;3:forest:dark;3:forest:dark;3:forest:dark;2:forest:dark;2:forest:dark;2:forest:normal;2:forest:normal;2:forest:normal;2:forest:normal;2:forest:normal;
+3:forest:dark;3:forest:dark;3:forest:dark;3:forest:dark;2:forest:dark;2:forest:dark;2:forest:normal;1:forest:normal;1:forest:normal;1:forest:normal;1:forest:normal;1:forest:normal;
+3:forest:dark;3:forest:dark;3:forest:dark;2:forest:dark;2:forest:normal;2:forest:normal;1:forest:normal;0:sand:normal;0:sand:normal;0:sand:normal;0:sand:normal;0:sand:normal;
+2:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;2:forest:normal;1:forest:normal;0:sand:normal;0:sand:normal;-1:sand:normal;-1:sand:normal;-1:sand:normal;-1:sand:normal;
+2:forest:dark;2:forest:dark;2:forest:dark;2:forest:dark;1:forest:normal;0:sand:normal;0:sand:normal;-1:sand:normal;-2:sand:normal;-2:sand:normal;-2:sand:normal;-3:sand:normal;
+2:forest:dark;2:forest:dark;2:forest:dark;2:forest:normal;1:forest:normal;0:sand:normal;0:sand:normal;-1:sand:normal;-2:sand:normal;-3:sand:normal;-4:sand:normal;-4:sand:normal;
+2:forest:dark;2:forest:dark;2:forest:normal;1:forest:normal;0:sand:normal;0:sand:normal;-1:sand:normal;-2:sand:normal;-3:sand:normal;-4:sand:normal;-5:sand:normal;-6:sand:normal;

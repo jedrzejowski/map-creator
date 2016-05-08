@@ -35,6 +35,12 @@
     <ClCompile Include="terrain-water.cpp">
       <Filter>terrain\water</Filter>
     </ClCompile>
+    <ClCompile Include="terrain-land.cpp">
+      <Filter>terrain\land</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain-deep.cpp">
+      <Filter>terrain\water\deep</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -63,6 +69,12 @@
     </ClInclude>
     <ClInclude Include="terrain-water.h">
       <Filter>terrain\water</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain-land.h">
+      <Filter>terrain\land</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain-deep.h">
+      <Filter>terrain\water\deep</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +114,12 @@
     </Filter>
     <Filter Include="terrain\land\rocky\upland">
       <UniqueIdentifier>{7c482482-15de-4ab5-acff-256ec1c09392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\beach">
+      <UniqueIdentifier>{ef830ce6-7143-4f4c-ac0e-125bbb06338b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\water\deep">
+      <UniqueIdentifier>{7feb1593-c22d-48f0-b944-c90589a7a835}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
