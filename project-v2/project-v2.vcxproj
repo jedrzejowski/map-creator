@@ -148,6 +148,7 @@
     <ClCompile Include="program.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="svg-figures.cpp" />
+    <ClCompile Include="svg-style.cpp" />
     <ClCompile Include="svg.cpp" />
     <ClCompile Include="terrain-deep.cpp" />
     <ClCompile Include="terrain-land.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="point.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="svg-figures.h" />
+    <ClInclude Include="svg-style.h" />
     <ClInclude Include="svg.h" />
     <ClInclude Include="terrain-deep.h" />
     <ClInclude Include="terrain-land.h" />
@@ -175,8 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />
-    <None Include="playfulljs.com.html" />
-    <None Include="svg-to-png.js" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

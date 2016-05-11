@@ -105,4 +105,5 @@ printSettings:
 	printf(SETTINGS_PRINTF_DOUBLE, "frequency", Frequency);
 	printf(SETTINGS_PRINTF_INT, "octaves", Octaves);
 	printf(SETTINGS_PRINTF_INT, "randomseed", Randomseed);
+
 }

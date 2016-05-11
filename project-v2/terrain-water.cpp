@@ -1,35 +1,106 @@
 ﻿#include "header.h"
 
-WaterTerrain::WaterTerrain(BaseTerrain& base) {
-	InsertConstructor(base);
-	
-	if (GetZ() < -(Map::GetInstance().GetAmplitude() / 4)) {
-		new DeepTerrain(*this);
-		return;
+namespace Terrain {
+
+	Water::Water(Base* base) {
+		InsertConstructor(base);
+
+		if (GetZ() < -(Map::GetInstance().GetAmplitude() / 4)) {
+			new Deep(this);
+			//delete this;
+		}
+
 	}
 
-}
+	Svg::Color Water::GetSurfaceColor() {
+		return Svg::Color(255, 200, 0);
+	}
 
-Color WaterTerrain::GetBaseColor() {
-	return Color(255,200,0); 
-}
+	Svg::Color Water::GetWaterColor() {
+		return Svg::Color(173, 216, 230, 0.75);
+	}
 
-Color WaterTerrain::GetWaterColor() {
-	return Color(173,216,230,0.75);
-}
+	std::string Water::GetWaterClasses() {
+		return "water";
+	}
 
-void WaterTerrain::DrawOn(Svg* svgImage) {
-	BaseTerrain::DrawOn(svgImage);
+	std::string Water::GetSurfaceClasses() {
+		return "water-bottom";
+	}
 
-	Polygon polygon;
+	std::string Water::GetSurfaceXClasses() {
+		return "x";
+	}
 
-	polygon.Clear();
-	polygon.AddPoint(Point::Transform(GetX(), GetY()));
-	polygon.AddPoint(Point::Transform(GetX(), GetY() + 1));
-	polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1));
-	polygon.AddPoint(Point::Transform(GetX() + 1, GetY()));
-	polygon.Fill = GetWaterColor();
+	std::string Water::GetSurfaceYClasses() {
+		return "y";
+	}
 
-	svgImage->addPolygon(polygon);
+	void Water::InsertStyle(Svg::SvgImage* svgImage) {
+		static bool inserted = false;
 
+		if (inserted) return;
+		inserted = true;
+
+		Svg::StyleClass styleClass;
+
+		styleClass = Svg::StyleClass(".water");
+		styleClass.Set("fill", Water::GetWaterColor().ToString());
+		svgImage->AddClass(styleClass);
+
+		styleClass = Svg::StyleClass(".water-bottom");
+		styleClass.Set("fill", Water::GetSurfaceColor().ToString());
+		svgImage->AddClass(styleClass);
+
+		styleClass = Svg::StyleClass(".water-bottom.x");
+		styleClass.Set("fill", Water::GetSurfaceColor().Darken(0.1).ToString());
+		svgImage->AddClass(styleClass);
+
+		styleClass = Svg::StyleClass(".water-bottom.y");
+		styleClass.Set("fill", Water::GetSurfaceColor().Lighten(0.1).ToString());
+		svgImage->AddClass(styleClass);
+	}
+
+	void Water::DrawOn(Svg::SvgImage* svgImage) {
+		Terrain::Base::DrawOn(svgImage);
+
+		Svg::Polygon polygon;
+
+		polygon.Clear();
+		polygon.AddPoint(Point::Transform(GetX(), GetY()));
+		polygon.AddPoint(Point::Transform(GetX(), GetY() + 1));
+		polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1));
+		polygon.AddPoint(Point::Transform(GetX() + 1, GetY()));
+
+		polygon.AddClass(GetWaterClasses());
+
+		svgImage->AddPolygon(polygon);
+
+		//Kraniec mapy na X 
+		if (GetX() == Map::GetInstance().GetWidth() - 1) {
+			polygon.Clear();
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), 0));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, 0));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
+
+			polygon.AddClass(GetWaterClasses());
+
+			svgImage->AddPolygon(polygon);
+		}
+
+		//Kraniec mapy na Y
+		if (GetY() == Map::GetInstance().GetLength() - 1) {
+
+			polygon.Clear();
+			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, 0));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, 0));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
+			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, GetZ()));
+
+			polygon.AddClass(GetWaterClasses());
+
+			svgImage->AddPolygon(polygon);
+		}
+	}
 }

@@ -1,32 +1,36 @@
 #pragma once
 #include "header.h"
 
-class BaseTerrain {
-	int X, Y, Z;
+namespace Terrain
+{
+	class Base {
+		int X, Y, Z;
 
-protected:
-	void InsertConstructor(BaseTerrain& base);
+	protected:
+		void InsertConstructor(Base* base);
 
-	template <typename T>
-	bool is(T className);
+	public:
+		Base() {};
+		Base(int x, int y, int z);
 
-public:
-	BaseTerrain();
-	BaseTerrain(int x, int y, int z);
+		void Init();
 
-	void Init();
+		int GetX();
+		int GetY();
+		int GetZ();
 
-	int GetX();
-	int GetY();
-	int GetZ();
+		void SetX(int val);
+		void SetY(int val);
+		void SetZ(int val);
 
-	void SetX(int val);
-	void SetY(int val);
-	void SetZ(int val);
+		virtual Svg::Color GetSurfaceColor() {};
 
-	virtual Color GetBaseColor();
-	
-	
-	virtual void DrawOn(Svg* svgImage);
+		virtual std::string GetSurfaceClasses() {};
+		virtual std::string GetSurfaceXClasses() {};
+		virtual std::string GetSurfaceYClasses() {};
 
-};
+		
+		virtual void InsertStyle(Svg::SvgImage* svgImage) {};
+		virtual void DrawOn(Svg::SvgImage* svgImage);
+	};
+}

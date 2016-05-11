@@ -8,5 +8,7 @@ int main(int argc, char* argv[])
 
 	Map::GetInstance().DrawMap("output.svg");
 
+	cout << "Done !" << endl;
+
     return 0;
 }

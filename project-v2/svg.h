@@ -1,41 +1,41 @@
 #pragma once
 #include "header.h"
+#include "color.h"
+#include "point.h"
 #include "svg-figures.h"
+#include "svg-style.h"
 
-using namespace std;
-
-/**
-* Klasa zajmuj¹ca siê tylko kreacj¹ pliku SVG
-* Nic innego poza tym nie robi
-*/
-class Svg {
-private:
-	stringstream *output;//<! Stream z tekstem do wyjœcia do pliku
-public:
-	int Height, //<! Wysokoœæ obrazu
-		Width; //<! Szerokoœæ obrazu
-public:
+namespace Svg {
 	/**
-	* Konstruktor klasy
-	* @param w szerokoœæ obrazu
-	* @param h wysokoœæ obrazu
+	* Klasa zajmuj¹ca siê tylko kreacj¹ pliku SVG
+	* Nic innego poza tym nie robi
 	*/
-	Svg(int w, int h);
+	class SvgImage {
+	private:
+		stringstream *content, *styles;//<! Stream z tekstem do wyjœcia do pliku
+		int Height, //<! Wysokoœæ obrazu
+			Width; //<! Szerokoœæ obrazu
 
-	/**
-	* Funkcja zapisuj¹ca do pliku
-	* @param path Scie¿ka do pliku wyjœciowego
-	*/
-	void save(string path);
+		std::vector<StyleClass> styleClasses;
 
-	/**
-	* Funkcja dodaj¹ca wielok¹t do obrazu
-	* @param point1 pierwszy punkt wielok¹tu
-	* @param point2 drugi punkt wielok¹tu
-	* @param point3 trzeci punkt wielok¹tu
-	* @param point4 czwarty punkt wielok¹tu
-	*/
-	void addPolygon(Point point1, Point point2, Point point3, Point point4, string color);
+		void GenerateStyles();
+	public:
+		/**
+		* Konstruktor klasy
+		* @param w szerokoœæ obrazu
+		* @param h wysokoœæ obrazu
+		*/
+		SvgImage(int w, int h);
 
-	void addPolygon(Polygon& polygon);
+		/**
+		* Funkcja zapisuj¹ca do pliku
+		* @param path Scie¿ka do pliku wyjœciowego
+		*/
+		void save(std::string path);
+
+		void AddClass(StyleClass classProps);
+
+
+		void AddPolygon(Polygon& polygon);
+	};
 };

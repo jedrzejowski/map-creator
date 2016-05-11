@@ -35,7 +35,7 @@ void Map::SetArgs(int argc, char* argv[]) {
 }
 
 
-BaseTerrain* Map::GetTerrain(int x, int y) {
+Terrain::Base* Map::GetTerrain(int x, int y) {
 	if (x < 0) x = 0;
 	if (y < 0) y = 0;
 
@@ -45,6 +45,6 @@ BaseTerrain* Map::GetTerrain(int x, int y) {
 	return surface.at(x).at(y);
 }
 
-void Map::SetTerrain(int x, int y, BaseTerrain* terrain) {
+void Map::SetTerrain(int x, int y, Terrain::Base* terrain) {
 	surface.at(x).at(y) = terrain;
 }

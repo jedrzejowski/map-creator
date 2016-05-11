@@ -1,20 +1,25 @@
 #pragma once
 #include "header.h"
 
-class Figure {
+namespace Svg {
 
-};
 
-class Polygon : public Figure {
-public:
-	vector<Point> Points;
-	Color Fill;
+	class Figure {
 
-	void Clear();
+	};
 
-	void AddPoint(Point point);
+	class Polygon : public Figure {
+		friend class SvgImage;
 
-	int Angles();
-	Color FillColor();
+		vector<std::string> Clases;
+		vector<Point> Points;
+	public:
 
+		void Clear();
+
+		void AddPoint(Point point);
+		void AddClass(std::string val);
+
+		int Angles();
+	};
 };

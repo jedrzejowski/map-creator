@@ -1,15 +1,14 @@
 #pragma once
 #include "header.h"
 
-using namespace std;
-
 class Map {
 private:
 	Map();
 
-	vector<vector<BaseTerrain*>> surface;
-	Svg* outputImage;
+	vector<vector<Terrain::Base*>> surface;
+	Svg::SvgImage* outputImage;
 
+	int LowestPoint;
 public:
 	Settings* mapSettings;
 	static Map& GetInstance();
@@ -18,12 +17,15 @@ public:
 	void GenerateSurface();
 	void DrawMap(string path);
 
-	BaseTerrain* GetTerrain(int x, int y);
-	void SetTerrain(int x, int y, BaseTerrain* terrain);
+	Terrain::Base* GetTerrain(int x, int y);
+	void SetTerrain(int x, int y, Terrain::Base* terrain);
 
 	//Settings
 	int GetLength();
 	int GetWidth();
 	int GetAmplitude();
+
+	void SetLowestPoint(int z);
+	int GetLowestPoint();
 	
 };

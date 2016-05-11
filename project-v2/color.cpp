@@ -2,86 +2,116 @@
 
 using namespace std;
 
-Color::Color() {
+namespace Svg {
 
-}
-Color::Color(int r, int g, int b) {
-	SetRed(r);
-	SetGreen(g);
-	SetBlue(b);
-}
-Color::Color(int r, int g, int b, float a) {
-	SetRed(r);
-	SetGreen(g);
-	SetBlue(b);
-	SetAlpha(a);
-}
+	Color::Color() {
 
-int Color::GetRed() { return Red; }
-int Color::GetGreen() { return Green; }
-int Color::GetBlue() { return Blue; }
-float Color::GetAlpha() { return Alpha; }
-
-void Color::SetRed(int val) { 
-	if (val > 255) {
-		Red = 255;
-		return;
+	}
+	Color::Color(int r, int g, int b) {
+		SetRed(r);
+		SetGreen(g);
+		SetBlue(b);
+	}
+	Color::Color(int r, int g, int b, float a) {
+		SetRed(r);
+		SetGreen(g);
+		SetBlue(b);
+		SetAlpha(a);
 	}
 
-	if (val < 0) {
-		Red = 0;
-		return;
+	int Color::GetRed() { return Red; }
+	int Color::GetGreen() { return Green; }
+	int Color::GetBlue() { return Blue; }
+	float Color::GetAlpha() { return Alpha; }
+
+	void Color::SetRed(int val) {
+		if (val > 255) {
+			Red = 255;
+			return;
+		}
+
+		if (val < 0) {
+			Red = 0;
+			return;
+		}
+
+		Red = val;
 	}
 
-	Red = val;
-}
+	void Color::SetGreen(int val) {
+		if (val > 255) {
+			Green = 255;
+			return;
+		}
 
-void Color::SetGreen(int val) {
-	if (val > 255) {
-		Green = 255;
-		return;
+		if (val < 0) {
+			Green = 0;
+			return;
+		}
+
+		Green = val;
 	}
 
-	if (val < 0) {
-		Green = 0;
-		return;
+	void Color::SetBlue(int val) {
+		if (val > 255) {
+			Blue = 255;
+			return;
+		}
+
+		if (val < 0) {
+			Blue = 0;
+			return;
+		}
+
+		Blue = val;
 	}
 
-	Green = val;
-}
+	void Color::SetAlpha(float val) {
+		if (val > 1) {
+			Alpha = 1;
+			return;
+		}
 
-void Color::SetBlue(int val) {
-	if (val > 255) {
-		Blue = 255;
-		return;
+		if (val < 0) {
+			Alpha = 0;
+			return;
+		}
+
+		Alpha = val;
 	}
 
-	if (val < 0) {
-		Blue = 0;
-		return;
+	string Color::ToString() {
+		std::stringstream out;
+
+		out << "rgba(" << Red << "," << Green << "," << Blue << "," << Alpha << ")";
+
+		return out.str();
 	}
 
-	Blue = val;
-}
+	Color Color::Darken(float value) {
+		if (value > 1) value = 1;
+		if (value < 0) value = 0;
 
-void Color::SetAlpha(float val) {
-	if (val > 1) {
-		Alpha = 1;
-		return;
+		value = 1 - value;
+
+		return Color(
+			GetRed() * value,
+			GetGreen() * value,
+			GetBlue() * value,
+			GetAlpha()
+			);
 	}
 
-	if (val < 0) {
-		Alpha = 0;
-		return;
+	Color Color::Lighten(float value) {
+		if (value < 0) value = 0;
+
+		value = 1 + value;
+
+		return Color(
+			GetRed() * value,
+			GetGreen() * value,
+			GetBlue() * value,
+			GetAlpha()
+			);
 	}
-
-	Alpha = val;
-}
-
-string Color::ToString() {
-	std::stringstream out;
-
-	out << "rgba(" << Red << "," << Green << "," << Blue << "," << Alpha << ")";
-
-	return out.str();
 }

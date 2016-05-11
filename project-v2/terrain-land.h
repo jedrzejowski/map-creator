@@ -1,12 +1,18 @@
 #pragma once
 #include "header.h"
 
-class LandTerrain : public BaseTerrain {
-public:
-	LandTerrain() { };
-	LandTerrain(BaseTerrain& terrain);
+namespace Terrain {
+	class Land : public Base {
+	public:
+		Land() { };
+		Land(Base* terrain);
 
-	virtual Color GetBaseColor();
+		virtual Svg::Color GetSurfaceColor();
 
-	//virtual void DrawOn(Svg* scgImage);
+		virtual std::string GetSurfaceClasses();
+		virtual std::string GetSurfaceXClasses();
+		virtual std::string GetSurfaceYClasses();
+
+		virtual void InsertStyle(Svg::SvgImage* svgImage);
+	};
 };

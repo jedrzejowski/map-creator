@@ -1,8 +1,6 @@
 #pragma once
 #include "header.h"
 
-using namespace std;
-
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -11,28 +9,31 @@ using namespace std;
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-class Color {
-private:
-	int Red = 0, Green = 0, Blue = 0;
-	float Alpha = 1;
-public:
+namespace Svg {
 
-	Color();
-	Color(int r, int g, int b);
-	Color(int r, int g, int b, float a);
+	class Color {
+	private:
+		int Red = 0, Green = 0, Blue = 0;
+		float Alpha = 1;
+	public:
 
-	string ToString();
+		Color();
+		Color(int r, int g, int b);
+		Color(int r, int g, int b, float a);
 
-	int GetRed();
-	int GetGreen();
-	int GetBlue();
-	float GetAlpha();
+		std::string ToString();
 
-	void SetRed(int val);
-	void SetGreen(int val);
-	void SetBlue(int val);
-	void SetAlpha(float val);
+		int GetRed();
+		int GetGreen();
+		int GetBlue();
+		float GetAlpha();
 
-	void Darken(float value);
-	void Lighten(float value);
+		void SetRed(int val);
+		void SetGreen(int val);
+		void SetBlue(int val);
+		void SetAlpha(float val);
+
+		Color Darken(float value);
+		Color Lighten(float value);
+	};
 };

@@ -18,38 +18,55 @@
 
 #include "header.h"
 
-using namespace std;
+namespace Svg {
 
-Svg::Svg(int w, int h) {
-	output = new stringstream();
-	Width = w;
-	Height = h;
-}
+	SvgImage::SvgImage(int w, int h) : 
+		styleClasses() {
 
-void Svg::save(string path) {
-	FILE * file = fopen(path.c_str(), "w");
+		content = new stringstream();
+		Width = w;
+		Height = h;
+	}
 
-	fprintf(file, "<svg xmlns='http://www.w3.org/2000/svg' width='%d' height='%d'>%s</svg>",
-		Width, Height, output->str().c_str());
+	void SvgImage::save(std::string path) {
+		ofstream file;
+		file.open(path);
+			
+		file << "<svg xmlns='http://www.w3.org/2000/svg' width='" << Width << "' height='" << Height << "'>";
+	
+		file << "<style>";
+		for (int i = 0, size = styleClasses.size(); i < size; i++)
+			file << styleClasses[i].ToString();
+		file << "</style>";
 
-	fclose(file);
-};
+		file << content->str();
 
-void Svg::addPolygon(Point point1, Point point2, Point point3, Point point4, string color) {
-	(*output) << "<polygon points='"
-		<< point1.X << "," << point1.Y << " "
-		<< point2.X << "," << point2.Y << " "
-		<< point3.X << "," << point3.Y << " "
-		<< point4.X << "," << point4.Y << "' "
-		<< "style='fill:" << color << ";stroke:white;stroke-width:0.3' />";
-};
+		file << "</svg>";
 
-void Svg::addPolygon(Polygon& polygon) {
-	int points = polygon.Angles();
-	(*output) << "<polygon points='";
+		file.close();
+	};
 
-	for (int i = 0; i < points; i++)
-		(*output) << polygon.Points[i].X << "," << polygon.Points[i].Y << " ";
+	void SvgImage::AddPolygon(Polygon& polygon) {
+		(*content) << "<polygon";
 
-	(*output) << "' style='fill:" << polygon.FillColor().ToString() << ";stroke:white;stroke-width:0.3' />";
+		(*content) << " points='";
+		for (int i = 0, size = polygon.Points.size(); i < size; i++)
+			(*content) << polygon.Points[i].X << "," << polygon.Points[i].Y << " ";
+		(*content) << "'";
+
+		//Klasy
+		if (polygon.Clases.size() > 0) {
+			(*content) << " class='";
+			for (int i = 0, size = polygon.Clases.size(); i < size; i++)
+				(*content) << polygon.Clases[i] << " ";
+			(*content) << "'";
+		}
+
+		(*content) << "/>";
+	}
+
+	void SvgImage::AddClass(StyleClass classProps) {
+		styleClasses.push_back(classProps);
+	}
+
 }

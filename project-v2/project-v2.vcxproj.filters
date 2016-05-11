@@ -93,6 +93,9 @@
     <ClInclude Include="color.h">
       <Filter>svg\color</Filter>
     </ClInclude>
+    <ClInclude Include="svg-style.h">
+      <Filter>svg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />

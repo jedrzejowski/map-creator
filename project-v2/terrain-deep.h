@@ -1,9 +1,14 @@
 #pragma once
 #include "header.h"
 
-class DeepTerrain : public WaterTerrain {
-public:
-	DeepTerrain(WaterTerrain& terrain);
+namespace Terrain {
+	class Deep : public Water {
+	public:
+		Deep(Water* terrain);
 
-	virtual Color GetWaterColor();
-};
+		virtual Svg::Color GetWaterColor();
+		virtual std::string GetWaterClasses();
+
+		virtual void InsertStyle(Svg::SvgImage* svgImage);
+	};
+}
