@@ -50,6 +50,9 @@
     <ClCompile Include="color.cpp">
       <Filter>svg\color</Filter>
     </ClCompile>
+    <ClCompile Include="svg-style.cpp">
+      <Filter>svg\style</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -94,13 +97,11 @@
       <Filter>svg\color</Filter>
     </ClInclude>
     <ClInclude Include="svg-style.h">
-      <Filter>svg</Filter>
+      <Filter>svg\style</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />
-    <None Include="playfulljs.com.html" />
-    <None Include="svg-to-png.js" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="map">
@@ -127,15 +128,6 @@
     <Filter Include="terrain\land\rocky">
       <UniqueIdentifier>{9bf143c9-0981-43af-a1f3-f73ca8c451a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="terrain\land\rocky\mountain">
-      <UniqueIdentifier>{6894261f-fdb6-4912-9043-6a4c6ccec703}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\land\rocky\sand">
-      <UniqueIdentifier>{bbd60495-9eda-4f63-8a5d-726c43720613}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\land\rocky\upland">
-      <UniqueIdentifier>{7c482482-15de-4ab5-acff-256ec1c09392}</UniqueIdentifier>
-    </Filter>
     <Filter Include="terrain\water\deep">
       <UniqueIdentifier>{7feb1593-c22d-48f0-b944-c90589a7a835}</UniqueIdentifier>
     </Filter>
@@ -151,5 +143,11 @@
     <Filter Include="svg\figure">
       <UniqueIdentifier>{c320f801-4315-4c32-9da7-2e333cee7d37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="svg\style">
+      <UniqueIdentifier>{bd8c13fc-4d28-4244-9958-d6495dbdf88b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="makefile" />
   </ItemGroup>
 </Project>
