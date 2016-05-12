@@ -50,15 +50,23 @@ namespace Svg {
 		(*content) << "<polygon";
 
 		(*content) << " points='";
-		for (int i = 0, size = polygon.Points.size(); i < size; i++)
-			(*content) << polygon.Points[i].X << "," << polygon.Points[i].Y << " ";
+		for (int i = 0, size = polygon.Points.size() - 1; i <= size; i++) {
+			(*content) << polygon.Points[i].X << "," << polygon.Points[i].Y;
+
+			if (i != size)
+				(*content) << " ";
+		}
 		(*content) << "'";
 
 		//Klasy
 		if (polygon.Clases.size() > 0) {
 			(*content) << " class='";
-			for (int i = 0, size = polygon.Clases.size(); i < size; i++)
-				(*content) << polygon.Clases[i] << " ";
+			for (int i = 0, size = polygon.Clases.size() - 1; i <= size; i++) {
+				(*content) << polygon.Clases[i];
+
+				if (i != size)
+					(*content) << " ";
+			}
 			(*content) << "'";
 		}
 

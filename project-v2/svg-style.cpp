@@ -16,8 +16,8 @@ namespace Svg {
 		stringstream output;
 		output << Name << "{";
 
-		for (std::map<string, string>::iterator prop = Properties.begin(); prop != Properties.end(); ++prop)
-		{
+		for (std::map<string, string>::iterator prop = Properties.begin(); 
+			prop != Properties.end(); prop++) {
 			output << prop->first << ":" << prop->second << ";";
 		}
 
