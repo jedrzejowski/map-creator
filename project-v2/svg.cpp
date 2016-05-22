@@ -34,10 +34,17 @@ namespace Svg {
 			
 		file << "<svg xmlns='http://www.w3.org/2000/svg' width='" << Width << "' height='" << Height << "'>";
 	
+		//Klasy
 		file << "<style>";
 		for (int i = 0, size = styleClasses.size(); i < size; i++)
 			file << styleClasses[i].ToString();
 		file << "</style>";
+
+		//Gradienty
+		file << "<defs>";
+		for (int i = 0, size = linearGradients.size(); i < size; i++)
+			file << linearGradients[i].ToString();
+		file << "</defs>";
 
 		file << content->str();
 
@@ -47,34 +54,15 @@ namespace Svg {
 	};
 
 	void SvgImage::AddPolygon(Polygon& polygon) {
-		(*content) << "<polygon";
-
-		(*content) << " points='";
-		for (int i = 0, size = polygon.Points.size() - 1; i <= size; i++) {
-			(*content) << polygon.Points[i].X << "," << polygon.Points[i].Y;
-
-			if (i != size)
-				(*content) << " ";
-		}
-		(*content) << "'";
-
-		//Klasy
-		if (polygon.Clases.size() > 0) {
-			(*content) << " class='";
-			for (int i = 0, size = polygon.Clases.size() - 1; i <= size; i++) {
-				(*content) << polygon.Clases[i];
-
-				if (i != size)
-					(*content) << " ";
-			}
-			(*content) << "'";
-		}
-
-		(*content) << "/>";
+		(*content) << polygon.ToString();
 	}
 
 	void SvgImage::AddClass(StyleClass classProps) {
 		styleClasses.push_back(classProps);
+	}
+
+	void SvgImage::AddGradient(LinearGradient gradient) {
+		linearGradients.push_back(gradient);
 	}
 
 }

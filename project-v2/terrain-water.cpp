@@ -62,7 +62,13 @@ namespace Terrain {
 	}
 
 	void Water::DrawOn(Svg::SvgImage* svgImage) {
-		Terrain::Base::DrawOn(svgImage);
+
+		// W Przypadku niskiej grafiki nie wysuje dna wodnego
+		if (Map::IsLowGraphic()) {
+			DrawWorldEdge(svgImage);
+		} else {
+			Terrain::Base::DrawOn(svgImage);
+		}
 
 		Svg::Polygon polygon;
 

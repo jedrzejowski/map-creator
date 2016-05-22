@@ -14,11 +14,11 @@ namespace Terrain {
 	}
 
 	std::string Rocky::GetSurfaceXClasses() {
-		return "rocky";
+		return "rocky x";
 	}
 
 	std::string Rocky::GetSurfaceYClasses() {
-		return "rocky";
+		return "rocky y";
 	}
 
 	void Rocky::InsertStyle(Svg::SvgImage* svgImage) {
@@ -30,7 +30,7 @@ namespace Terrain {
 
 		styleClass = Svg::StyleClass(".rocky");
 		styleClass.Set("fill", Rocky::GetSurfaceColor().ToString());
-		styleClass.Set("stroke", "black");
+		styleClass.Set("stroke", "dimgray");
 		svgImage->AddClass(styleClass);
 
 		styleClass = Svg::StyleClass(".rocky.x");
@@ -40,5 +40,7 @@ namespace Terrain {
 		styleClass = Svg::StyleClass(".rocky.y");
 		styleClass.Set("fill", Rocky::GetSurfaceColor().Lighten(0.1).ToString());
 		svgImage->AddClass(styleClass);
+
+
 	}
 };

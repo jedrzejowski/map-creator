@@ -9,8 +9,9 @@ namespace Svg {
 	};
 
 	class Polygon : public Figure {
-		friend class SvgImage;
+		//friend class SvgImage;
 
+		std::string Fill;
 		vector<std::string> Clases;
 		vector<Point> Points;
 	public:
@@ -20,6 +21,9 @@ namespace Svg {
 		void AddPoint(Point point);
 		void AddClass(std::string val);
 
-		int Angles();
+		void SetFill(std::string val);
+		std::string GetFill();
+
+		std::string ToString();
 	};
 };

@@ -12,3 +12,5 @@ int Map::GetLowestPoint() { return LowestPoint; }
 void Map::SetLowestPoint(int z) {
 	LowestPoint = z < LowestPoint ? z : LowestPoint;
 }
+
+bool Map::IsLowGraphic() { return GetInstance().mapSettings->LowGraphic; }

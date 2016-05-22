@@ -8,6 +8,7 @@ namespace Terrain
 
 	protected:
 		void InsertConstructor(Base* base);
+		virtual void DrawWorldEdge(Svg::SvgImage* svgImage);
 
 	public:
 		Base() {};

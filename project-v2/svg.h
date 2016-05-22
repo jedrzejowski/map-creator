@@ -4,6 +4,7 @@
 #include "point.h"
 #include "svg-figures.h"
 #include "svg-style.h"
+#include "svg-gradient.h"
 
 namespace Svg {
 	/**
@@ -17,8 +18,8 @@ namespace Svg {
 			Width; //<! Szerokoœæ obrazu
 
 		std::vector<StyleClass> styleClasses;
+		std::vector<LinearGradient> linearGradients;
 
-		void GenerateStyles();
 	public:
 		/**
 		* Konstruktor klasy
@@ -34,6 +35,7 @@ namespace Svg {
 		void save(std::string path);
 
 		void AddClass(StyleClass classProps);
+		void AddGradient(LinearGradient gradient);
 
 
 		void AddPolygon(Polygon& polygon);

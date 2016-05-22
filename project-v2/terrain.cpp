@@ -42,6 +42,7 @@ namespace Terrain {
 	void Base::DrawOn(Svg::SvgImage* svgImage) {
 		Svg::Polygon polygon = Svg::Polygon();
 		Terrain::Base* tempTer;
+		int tempZ;
 
 		//Podatawowy kloc terenu
 		polygon.Clear();
@@ -58,24 +59,14 @@ namespace Terrain {
 		tempTer = Map::GetInstance().GetTerrain(GetX() + 1, GetY());
 		if (tempTer->GetZ() < GetZ()) {
 			polygon.Clear();
+
+			tempZ = tempTer->GetZ();
+			if (tempZ < 0) if (Map::IsLowGraphic()) tempZ = 0;
+
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, tempTer->GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), tempTer->GetZ()));
-
-			polygon.AddClass(GetSurfaceClasses());
-			polygon.AddClass(GetSurfaceXClasses());
-
-			svgImage->AddPolygon(polygon);
-		}
-
-		//Kraniec mapy na X 
-		if(GetX() == Map::GetInstance().GetWidth() - 1){
-			polygon.Clear();
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Map::GetInstance().GetLowestPoint()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), Map::GetInstance().GetLowestPoint()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, tempZ));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), tempZ));
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceXClasses());
@@ -87,21 +78,48 @@ namespace Terrain {
 		tempTer = Map::GetInstance().GetTerrain(GetX(), GetY() + 1);
 		if (tempTer->GetZ() < GetZ()) {
 			polygon.Clear();
+
+			tempZ = tempTer->GetZ();
+			if (tempZ < 0) if (Map::IsLowGraphic()) tempZ = 0;
+
 			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, tempTer->GetZ()));
-			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, tempTer->GetZ()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, tempZ));
+			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, tempZ));
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceYClasses());
 
 			svgImage->AddPolygon(polygon);
 		}
+		
+		DrawWorldEdge(svgImage);
+	}
+
+	void Base::DrawWorldEdge(Svg::SvgImage* svgImage) {
+		Svg::Polygon polygon = Svg::Polygon();
+		Terrain::Base* tempTer;
+		int tempZ;
+
+		//Kraniec mapy na X 
+		if (GetX() == Map::GetInstance().GetWidth() - 1) {
+			polygon.Clear();
+
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Map::GetInstance().GetLowestPoint()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), Map::GetInstance().GetLowestPoint()));
+
+			polygon.AddClass(GetSurfaceClasses());
+			polygon.AddClass(GetSurfaceXClasses());
+
+			svgImage->AddPolygon(polygon);
+		}
 
 		//Kraniec mapy na Y
 		if (GetY() == Map::GetInstance().GetLength() - 1) {
-
 			polygon.Clear();
+
 			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Map::GetInstance().GetLowestPoint()));

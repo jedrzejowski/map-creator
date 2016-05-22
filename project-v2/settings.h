@@ -10,6 +10,8 @@ public:
 	double Persistence, Frequency, Amplitude;
 	int Octaves, Randomseed;
 
+	bool LowGraphic = false;
+
 	Settings();
 
 	void ReadFromFile(string path);

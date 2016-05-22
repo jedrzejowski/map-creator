@@ -9,8 +9,9 @@ private:
 	Svg::SvgImage* outputImage;
 
 	int LowestPoint;
-public:
 	Settings* mapSettings;
+
+public:
 	static Map& GetInstance();
 	void SetArgs(int argc, char* argv[]);
 
@@ -27,5 +28,6 @@ public:
 
 	void SetLowestPoint(int z);
 	int GetLowestPoint();
+	static bool IsLowGraphic();
 	
 };

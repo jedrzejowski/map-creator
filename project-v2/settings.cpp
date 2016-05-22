@@ -38,6 +38,8 @@ void Settings::ReadFromFile(string path) {
 			lineNum++;
 
 			for (int i = 0; i < length; i++) {
+				if (line.at(i) == '#') break;
+
 				if (line.at(i) == '=') {
 					val = line.substr(i + 1, length);
 					break;
@@ -83,10 +85,17 @@ void Settings::ReadFromFile(string path) {
 				continue;
 			}
 
+			if (!prop.compare("lowgraphic")) {
+				if(!val.compare("1") || !val.compare("true"))
+					LowGraphic = true;
+				continue;
+			}
+
 			cerr << "Input file at line " << lineNum << ", prop '" << prop << "' is unknown" << endl;
 		}
 	}
 	catch (exception error) {
+
 		cerr << "Input file is broken at line " << lineNum << endl;
 		exit(ErrorInputFile);
 	}
