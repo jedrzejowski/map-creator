@@ -32,6 +32,9 @@ namespace Svg {
 	}
 
 	std::string GradientStop::ToString() {
+		stringstream stream;
+		stream << "<stop offset='" << offset * 100 << "%' style='stop-color:" << color.ToString() << "'/>";
+		return stream.str();
 	}
 
 	//
@@ -49,14 +52,29 @@ namespace Svg {
 		Stops.push_back(stop);
 	}
 
-	std::string LinearGradient::ToString() {
-	}
-
 	void LinearGradient::SetName(std::string val) {
 		Name = val;
 	}
 
 	std::string LinearGradient::GetName(){
 		return Name;
+	}
+
+	void LinearGradient::SetPath(float x1, float y1, float x2, float y2) {
+		X1 = x1;
+		Y1 = y1; 
+		X2 = x2;
+		Y2 = y2;
+	}
+
+	std::string LinearGradient::ToString() {
+		stringstream stream;
+		stream << "<linearGradient id='" << Name << "' x1='" << X1 * 100 << "%' y1='" << Y1 * 100 << "%' x2='" << X2 * 100 << "%' y2='" << Y2 * 100 << "%'>";
+
+		for (int i = 0, size = Stops.size(); i < size; i++)
+			stream << Stops[i].ToString();
+
+		stream << "</linearGradient>";
+		return stream.str();
 	}
 };

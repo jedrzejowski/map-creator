@@ -24,14 +24,18 @@ namespace Terrain
 		void SetY(int val);
 		void SetZ(int val);
 
+		std::string GetTransitionNameX();
+		std::string GetTransitionNameY();
+
 		virtual Svg::Color GetSurfaceColor() {};
 
 		virtual std::string GetSurfaceClasses() {};
 		virtual std::string GetSurfaceXClasses() {};
 		virtual std::string GetSurfaceYClasses() {};
+		virtual std::string GetName() {};
 
 		
-		virtual void InsertStyle(Svg::SvgImage* svgImage) {};
+		virtual void InsertDefs(Svg::SvgImage* svgImage) {};
 		virtual void DrawOn(Svg::SvgImage* svgImage);
 	};
 }

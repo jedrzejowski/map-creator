@@ -14,7 +14,11 @@ namespace Terrain {
 		return "water deep";
 	}
 
-	void Deep::InsertStyle(Svg::SvgImage* svgImage) {
+	std::string Deep::GetName() {
+		return "deep";
+	}
+
+	void Deep::InsertDefs(Svg::SvgImage* svgImage) {
 		static bool inserted = false;
 		if (inserted) return;
 		inserted = true;

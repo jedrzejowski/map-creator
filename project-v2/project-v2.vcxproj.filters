@@ -53,6 +53,9 @@
     <ClCompile Include="svg-style.cpp">
       <Filter>svg\style</Filter>
     </ClCompile>
+    <ClCompile Include="svg-gradient.cpp">
+      <Filter>svg\gradient</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -98,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="svg-style.h">
       <Filter>svg\style</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-gradient.h">
+      <Filter>svg\gradient</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +151,9 @@
     </Filter>
     <Filter Include="svg\style">
       <UniqueIdentifier>{bd8c13fc-4d28-4244-9958-d6495dbdf88b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\gradient">
+      <UniqueIdentifier>{17a56c2d-1209-45aa-a7ee-843d69d46a4f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

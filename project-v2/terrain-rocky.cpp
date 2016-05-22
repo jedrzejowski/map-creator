@@ -14,14 +14,18 @@ namespace Terrain {
 	}
 
 	std::string Rocky::GetSurfaceXClasses() {
-		return "rocky x";
+		return "x";
 	}
 
 	std::string Rocky::GetSurfaceYClasses() {
-		return "rocky y";
+		return "y";
+	}
+	
+	std::string Rocky::GetName() {
+		return "rocky";
 	}
 
-	void Rocky::InsertStyle(Svg::SvgImage* svgImage) {
+	void Rocky::InsertDefs(Svg::SvgImage* svgImage) {
 		static bool inserted = false;
 		if (inserted) return;
 		inserted = true;

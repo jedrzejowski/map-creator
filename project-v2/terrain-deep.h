@@ -8,7 +8,8 @@ namespace Terrain {
 
 		virtual Svg::Color GetWaterColor();
 		virtual std::string GetWaterClasses();
+		virtual std::string GetName();
 
-		virtual void InsertStyle(Svg::SvgImage* svgImage);
+		virtual void InsertDefs(Svg::SvgImage* svgImage);
 	};
 }

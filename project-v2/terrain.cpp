@@ -27,6 +27,18 @@ namespace Terrain {
 		Map::GetInstance().SetLowestPoint(Z);
 	}
 
+	std::string Base::GetTransitionNameX() {
+		stringstream out;
+		out << GetName() << "2" << Map::GetInstance().GetTerrain(GetX() + 1, GetY())->GetName();
+		return out.str();
+	}
+
+	std::string Base::GetTransitionNameY() {
+		stringstream out;
+		out << GetName() << "2" << Map::GetInstance().GetTerrain(GetX(), GetY() + 1)->GetName();
+		return out.str();
+	}
+
 	void Base::InsertConstructor(Terrain::Base* base) {
 
 		SetX(base->GetX());
@@ -70,6 +82,7 @@ namespace Terrain {
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceXClasses());
+			polygon.AddClass(GetTransitionNameX());
 
 			svgImage->AddPolygon(polygon);
 		}
@@ -89,6 +102,7 @@ namespace Terrain {
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceYClasses());
+			polygon.AddClass(GetTransitionNameY());
 
 			svgImage->AddPolygon(polygon);
 		}
@@ -112,6 +126,7 @@ namespace Terrain {
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceXClasses());
+			polygon.AddClass(GetTransitionNameX());
 
 			svgImage->AddPolygon(polygon);
 		}
@@ -127,6 +142,7 @@ namespace Terrain {
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceYClasses());
+			polygon.AddClass(GetTransitionNameY());
 
 			svgImage->AddPolygon(polygon);
 		}

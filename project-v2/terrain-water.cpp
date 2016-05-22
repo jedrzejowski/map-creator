@@ -7,7 +7,6 @@ namespace Terrain {
 
 		if (GetZ() < -(Map::GetInstance().GetAmplitude() / 4)) {
 			new Deep(this);
-			//delete this;
 		}
 
 	}
@@ -36,7 +35,11 @@ namespace Terrain {
 		return "y";
 	}
 
-	void Water::InsertStyle(Svg::SvgImage* svgImage) {
+	std::string Water::GetName() {
+		return "water";
+	}
+
+	void Water::InsertDefs(Svg::SvgImage* svgImage) {
 		static bool inserted = false;
 
 		if (inserted) return;

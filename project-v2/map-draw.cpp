@@ -16,7 +16,7 @@ void Map::DrawMap(string path) {
 
 			if(temp != NULL)
 			temp->DrawOn(outputImage);
-			temp->InsertStyle(outputImage);
+			temp->InsertDefs(outputImage);
 		}
 	}
 

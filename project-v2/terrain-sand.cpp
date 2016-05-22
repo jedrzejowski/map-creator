@@ -21,7 +21,11 @@ namespace Terrain {
 		return "y";
 	}
 
-	void Sand::InsertStyle(Svg::SvgImage* svgImage) {
+	std::string Sand::GetName() {
+		return "sand";
+	}
+
+	void Sand::InsertDefs(Svg::SvgImage* svgImage) {
 		static bool inserted = false;
 		if (inserted) return;
 		inserted = true;

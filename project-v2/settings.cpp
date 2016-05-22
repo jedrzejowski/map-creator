@@ -108,8 +108,7 @@ printSettings:
 
 	printf(SETTINGS_PRINTF_INT, "width", Width);
 	printf(SETTINGS_PRINTF_INT, "length", Length);
-	printf(SETTINGS_PRINTF_INT, "amplitude", Amplitude);
-
+	printf(SETTINGS_PRINTF_DOUBLE, "amplitude", Amplitude);
 	printf(SETTINGS_PRINTF_DOUBLE, "persistence", Persistence);
 	printf(SETTINGS_PRINTF_DOUBLE, "frequency", Frequency);
 	printf(SETTINGS_PRINTF_INT, "octaves", Octaves);
