@@ -2,6 +2,8 @@
 
 int main(int argc, char* argv[])
 {
+	srand(time(NULL));
+
 	Map::GetInstance().SetArgs(argc, argv);
 	
 	Map::GetInstance().GenerateSurface();

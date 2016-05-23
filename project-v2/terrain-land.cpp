@@ -7,11 +7,20 @@ namespace Terrain {
 		static float bleachLvl = Settings::GetAmplitude() * 0.1;
 		if (GetZ() < bleachLvl) {
 			new Sand(this);
+			return;
 		}
 
 		static float rockLvl = Settings::GetAmplitude() * 0.7;
 		if (GetZ() > rockLvl) {
 			new Rocky(this);
+			return;
+		}
+	}
+
+	void Land::Init() {
+		if (Forest::TreeSeed()) {
+			new Forest(this);
+			return;
 		}
 	}
 
@@ -21,14 +30,6 @@ namespace Terrain {
 
 	std::string Land::GetSurfaceClasses() {
 		return "land";
-	}
-
-	std::string Land::GetSurfaceXClasses() {
-		return "x";
-	}
-
-	std::string Land::GetSurfaceYClasses() {
-		return "y";
 	}
 
 	std::string Land::GetName() {

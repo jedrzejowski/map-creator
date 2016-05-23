@@ -27,14 +27,6 @@ namespace Terrain {
 		return "water-bottom";
 	}
 
-	std::string Water::GetSurfaceXClasses() {
-		return "x";
-	}
-
-	std::string Water::GetSurfaceYClasses() {
-		return "y";
-	}
-
 	std::string Water::GetName() {
 		return "water";
 	}

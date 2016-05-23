@@ -26,7 +26,7 @@ using namespace std;
  */
 class Point {
 public:
-	int X, //<! Współrzędna X
+	float X, //<! Współrzędna X
 		Y, //<! Współrzędna Y
 		Z; //<! Współrzędna Z
 
@@ -35,7 +35,7 @@ public:
 	 * @param x Współrzędna X
 	 * @param y Współrzędna Y
 	 */
-	Point(int x, int y);
+	Point(float x, float y);
 
 	/**
 	 * Konstruktor
@@ -43,7 +43,7 @@ public:
 	 * @param y Współrzędna Y
 	 * @param z Współrzędna Z
 	 */
-	Point(int x, int y, int z);
+	Point(float x, float y, float z);
 
 	/**
 	 * Transformator punktu dwuwymiarowego na trójwymiarowy
@@ -51,5 +51,5 @@ public:
 	 * @param y Współrzędna Y
 	 * @param z Współrzędna Z
 	 */
-	static Point Transform(int x = 0, int y = 0, int z = 0);
+	static Point Transform(float x = 0, float y = 0, float z = 0);
 };

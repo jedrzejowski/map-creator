@@ -84,7 +84,8 @@ void Map::GenerateSurface() {
 		surface.push_back(vector<Terrain::Base*>());
 
 		for (int j = 0; j < Settings::GetLength(); j++) {
-			surface.at(i).push_back(new Terrain::Base(i, j, noise.GetHeight(i, j)));
+			surface.at(i).push_back(new Terrain::Base());
+			new Terrain::Base(i, j, noise.GetHeight(i, j));
 		}
 	}
 

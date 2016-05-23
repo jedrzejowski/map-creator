@@ -11,7 +11,6 @@ Settings::Settings() {
 	Frequency = DEFAULT_MAP_FREQUENCY;
 	Octaves = DEFAULT_MAP_OCTAVES;
 
-	srand(time(NULL));
 	Randomseed = rand();
 }
 
@@ -139,9 +138,9 @@ void Settings::SetLowestPoint(int z) {
 }
 
 bool Settings::IsLowGraphic() {
-	return  Map::GetInstance().mapSettings->LowGraphic;
+	return Map::GetInstance().mapSettings->LowGraphic;
 }
 
 bool Settings::SmoothTerrainCross() {
-	return  Map::GetInstance().mapSettings->LowGraphic;
+	return !IsLowGraphic();
 }

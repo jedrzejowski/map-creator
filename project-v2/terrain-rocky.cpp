@@ -12,14 +12,6 @@ namespace Terrain {
 	std::string Rocky::GetSurfaceClasses() {
 		return "rocky";
 	}
-
-	std::string Rocky::GetSurfaceXClasses() {
-		return "x";
-	}
-
-	std::string Rocky::GetSurfaceYClasses() {
-		return "y";
-	}
 	
 	std::string Rocky::GetName() {
 		return "rocky";

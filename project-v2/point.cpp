@@ -20,13 +20,13 @@
 
 using namespace std;
 
-Point::Point(int x, int y) {
+Point::Point(float x, float y) {
 	X = x;
 	Y = y;
 	Z = 0;
 }
 
-Point::Point(int x, int y, int z) {
+Point::Point(float x, float y, float z) {
 	X = x;
 	Y = y;
 	Z = z;
@@ -38,7 +38,7 @@ double trans[][2] =
 		{ 0.4, 0.6 }
 	};
 
-Point Point::Transform(int x, int y, int z) {
+Point Point::Transform(float x, float y, float z) {
 	x = 50 * x - Settings::GetWidth() * 50 / 2;
 	y = 50 * y - Settings::GetLength() * 50 / 2;
 

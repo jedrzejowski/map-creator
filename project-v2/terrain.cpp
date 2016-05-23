@@ -5,16 +5,15 @@ namespace Terrain {
 		SetX(x);
 		SetY(y);
 		SetZ(z);
-	}
-
-	void Base::Init() {
 
 		if (GetZ() < 0)
 			new Water(this);
 		else
 			new Land(this);
-			
-		//delete this;
+	}
+
+	void Base::Init() {
+		
 	}
 
 	int Base::GetX() { return X; }
@@ -25,6 +24,14 @@ namespace Terrain {
 	void Base::SetZ(int val) { 
 		Z = val;
 		Settings::SetLowestPoint(Z);
+	}
+
+	std::string Base::GetSurfaceXClasses() {
+		return "x";
+	}
+
+	std::string Base::GetSurfaceYClasses() {
+		return "y";
 	}
 
 	std::string Base::GetTransitionNameX() {

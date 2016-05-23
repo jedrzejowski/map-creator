@@ -11,14 +11,8 @@
     <ClCompile Include="terrain.cpp">
       <Filter>terrain</Filter>
     </ClCompile>
-    <ClCompile Include="map-gen.cpp">
-      <Filter>map</Filter>
-    </ClCompile>
     <ClCompile Include="svg.cpp">
       <Filter>svg</Filter>
-    </ClCompile>
-    <ClCompile Include="map-draw.cpp">
-      <Filter>map</Filter>
     </ClCompile>
     <ClCompile Include="perlin.cpp">
       <Filter>perlin</Filter>
@@ -53,7 +47,7 @@
     <ClCompile Include="svg-gradient.cpp">
       <Filter>svg\gradient</Filter>
     </ClCompile>
-    <ClCompile Include="terrain-forrest.cpp">
+    <ClCompile Include="terrain-forest.cpp">
       <Filter>terrain\land\forest</Filter>
     </ClCompile>
   </ItemGroup>
@@ -105,7 +99,7 @@
     <ClInclude Include="svg-gradient.h">
       <Filter>svg\gradient</Filter>
     </ClInclude>
-    <ClInclude Include="terrain-forrest.h">
+    <ClInclude Include="terrain-forest.h">
       <Filter>terrain\land\forest</Filter>
     </ClInclude>
   </ItemGroup>

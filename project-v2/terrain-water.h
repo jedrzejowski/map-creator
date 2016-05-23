@@ -12,8 +12,6 @@ namespace Terrain {
 
 		virtual std::string GetWaterClasses();
 		virtual std::string GetSurfaceClasses();
-		virtual std::string GetSurfaceXClasses();
-		virtual std::string GetSurfaceYClasses();
 		virtual std::string GetName();
 
 		virtual void InsertDefs(Svg::SvgImage* svgImage);

@@ -14,7 +14,7 @@ namespace Terrain
 		Base() {};
 		Base(int x, int y, int z);
 
-		void Init();
+		virtual void Init();
 
 		int GetX();
 		int GetY();
@@ -30,8 +30,8 @@ namespace Terrain
 		virtual Svg::Color GetSurfaceColor() {};
 
 		virtual std::string GetSurfaceClasses() {};
-		virtual std::string GetSurfaceXClasses() {};
-		virtual std::string GetSurfaceYClasses() {};
+		virtual std::string GetSurfaceXClasses();
+		virtual std::string GetSurfaceYClasses();
 		virtual std::string GetName() {};
 
 		

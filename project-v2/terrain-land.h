@@ -10,9 +10,8 @@ namespace Terrain {
 		virtual Svg::Color GetSurfaceColor();
 
 		virtual std::string GetSurfaceClasses();
-		virtual std::string GetSurfaceXClasses();
-		virtual std::string GetSurfaceYClasses();
 		virtual std::string GetName();
+		virtual void Init();
 
 		virtual void InsertDefs(Svg::SvgImage* svgImage);
 	};
@@ -20,3 +19,4 @@ namespace Terrain {
 
 #include "terrain-rocky.h"
 #include "terrain-sand.h"
+#include "terrain-forest.h"

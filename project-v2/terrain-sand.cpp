@@ -13,14 +13,6 @@ namespace Terrain {
 		return "sand";
 	}
 
-	std::string Sand::GetSurfaceXClasses() {
-		return "x";
-	}
-
-	std::string Sand::GetSurfaceYClasses() {
-		return "y";
-	}
-
 	std::string Sand::GetName() {
 		return "sand";
 	}
