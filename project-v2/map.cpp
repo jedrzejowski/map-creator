@@ -45,3 +45,54 @@ Terrain::Base* Map::GetTerrain(int x, int y) {
 void Map::SetTerrain(int x, int y, Terrain::Base* terrain) {
 	GetInstance().surface.at(x).at(y) = terrain;
 }
+
+void Map::DrawMap(string path) {
+	cout << "Drawing ..." << endl;
+
+	outputImage = new Svg::SvgImage(100000, 100000);
+
+	Svg::StyleClass styleClass = Svg::StyleClass("polygon");
+	styleClass.Set("stroke-width", "0.5");
+	styleClass.Set("stroke", "white");
+	outputImage->AddClass(styleClass);
+
+	for (int x = 0; x < Settings::GetWidth(); x++) {
+		for (int y = 0; y < Settings::GetLength(); y++) {
+			Terrain::Base* temp = GetTerrain(x, y);
+
+			if (temp != NULL)
+				temp->DrawOn(outputImage);
+			temp->InsertDefs(outputImage);
+		}
+	}
+
+	outputImage->save(path);
+}
+
+void Map::GenerateSurface() {
+
+	cout << "Randomizing surface ..." << endl;
+
+	PerlinNoise noise = PerlinNoise(
+		mapSettings->Persistence,
+		mapSettings->Frequency,
+		mapSettings->Amplitude,
+		mapSettings->Octaves,
+		mapSettings->Randomseed);
+
+	for (int i = 0; i < Settings::GetWidth(); i++) {
+		surface.push_back(vector<Terrain::Base*>());
+
+		for (int j = 0; j < Settings::GetLength(); j++) {
+			surface.at(i).push_back(new Terrain::Base(i, j, noise.GetHeight(i, j)));
+		}
+	}
+
+	cout << "Initialization ..." << endl;
+
+	for (int i = 0; i < Settings::GetWidth(); i++)
+		for (int j = 0; j < Settings::GetLength(); j++) {
+			surface.at(i).at(j)->Init();
+		}
+
+}
