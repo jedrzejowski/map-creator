@@ -3,13 +3,15 @@
 using namespace std;
 
 Settings::Settings() {
-	Width = 50;
-	Length = 50;
-	Amplitude = 50;
+	Width = DEFAULT_MAP_WIDTH;
+	Length = DEFAULT_MAP_LENGTH;
+	Amplitude = DEFAULT_MAP_AMPLITUDE;
 
-	Persistence = 1;
-	Frequency = 0.05;
-	Octaves = 3;
+	Persistence = DEFAULT_MAP_PERSISTENCE;
+	Frequency = DEFAULT_MAP_FREQUENCY;
+	Octaves = DEFAULT_MAP_OCTAVES;
+
+	srand(time(NULL));
 	Randomseed = rand();
 }
 

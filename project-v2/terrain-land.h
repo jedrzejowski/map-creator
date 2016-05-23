@@ -1,5 +1,5 @@
 #pragma once
-#include "header.h"
+#include "terrain.h"
 
 namespace Terrain {
 	class Land : public Base {
@@ -17,3 +17,6 @@ namespace Terrain {
 		virtual void InsertDefs(Svg::SvgImage* svgImage);
 	};
 };
+
+#include "terrain-rocky.h"
+#include "terrain-sand.h"

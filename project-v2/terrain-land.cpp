@@ -1,5 +1,4 @@
 #include "header.h"
-#include "terrain.h"
 
 namespace Terrain {
 	Land::Land(Base* base) {

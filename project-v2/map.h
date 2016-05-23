@@ -1,5 +1,6 @@
 #pragma once
 #include "header.h"
+#include "settings.h"
 
 class Map {
 	friend class Settings;

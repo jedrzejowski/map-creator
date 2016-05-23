@@ -1,10 +1,8 @@
-#include "header.h"
+#include "map.h"
 
 using namespace std;
 
 Map::Map(){
-	srand(time(NULL));
-
 	mapSettings = new Settings();
 };
 
@@ -17,7 +15,7 @@ Map& Map::GetInstance()
 
 void Map::SetArgs(int argc, char* argv[]) {
 	if (argc == 1) {
-		cout << ANSI_COLOR_MAGENTA  "Default input file: 'input.ini'" ANSI_COLOR_RESET << endl;
+		cout << ANSI_COLOR_MAGENTA "Default input file: 'input.ini'" ANSI_COLOR_RESET << endl;
 		
 		mapSettings->ReadFromFile(DEFAULT_INPUT_FILE);
 		return;

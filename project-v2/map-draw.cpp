@@ -1,4 +1,4 @@
-#include "header.h"
+#include "map.h"
 
 void Map::DrawMap(string path) {
 	cout << "Drawing ..." << endl;

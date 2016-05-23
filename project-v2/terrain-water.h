@@ -1,5 +1,5 @@
 #pragma once
-#include "header.h"
+#include "terrain.h"
 
 namespace Terrain {
 	class Water : public Base {
@@ -20,3 +20,5 @@ namespace Terrain {
 		virtual void DrawOn(Svg::SvgImage* scgImage);
 	};
 }
+
+#include "terrain-deep.h"

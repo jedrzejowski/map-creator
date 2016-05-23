@@ -1,5 +1,5 @@
 #pragma once
-#include "header.h"
+#include "terrain.h"
 
 namespace Terrain {
 	class Sand : public Land {

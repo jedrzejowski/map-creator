@@ -39,3 +39,6 @@ namespace Terrain
 		virtual void DrawOn(Svg::SvgImage* svgImage);
 	};
 }
+
+#include "terrain-land.h"
+#include "terrain-water.h"
