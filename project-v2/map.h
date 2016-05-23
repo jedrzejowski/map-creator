@@ -2,6 +2,7 @@
 #include "header.h"
 
 class Map {
+	friend class Settings;
 private:
 	Map();
 
@@ -13,21 +14,14 @@ private:
 
 public:
 	static Map& GetInstance();
+
 	void SetArgs(int argc, char* argv[]);
 
 	void GenerateSurface();
 	void DrawMap(string path);
 
-	Terrain::Base* GetTerrain(int x, int y);
-	void SetTerrain(int x, int y, Terrain::Base* terrain);
+	static Terrain::Base* GetTerrain(int x, int y);
+	static void SetTerrain(int x, int y, Terrain::Base* terrain);
 
-	//Settings
-	int GetLength();
-	int GetWidth();
-	int GetAmplitude();
 
-	void SetLowestPoint(int z);
-	int GetLowestPoint();
-	static bool IsLowGraphic();
-	
 };

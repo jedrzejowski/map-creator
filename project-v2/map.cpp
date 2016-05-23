@@ -34,17 +34,16 @@ void Map::SetArgs(int argc, char* argv[]) {
 	}
 }
 
-
 Terrain::Base* Map::GetTerrain(int x, int y) {
 	if (x < 0) x = 0;
 	if (y < 0) y = 0;
 
-	if (x >= GetWidth()) x = GetWidth() - 1;
-	if (y >= GetLength()) y = GetLength() - 1;
+	if (x >= Settings::GetWidth()) x = Settings::GetWidth() - 1;
+	if (y >= Settings::GetLength()) y = Settings::GetLength() - 1;
 
-	return surface.at(x).at(y);
+	return GetInstance().surface.at(x).at(y);
 }
 
 void Map::SetTerrain(int x, int y, Terrain::Base* terrain) {
-	surface.at(x).at(y) = terrain;
+	GetInstance().surface.at(x).at(y) = terrain;
 }

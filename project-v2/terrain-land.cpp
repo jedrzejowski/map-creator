@@ -5,12 +5,12 @@ namespace Terrain {
 	Land::Land(Base* base) {
 		InsertConstructor(base);
 
-		static float bleachLvl = Map::GetInstance().GetAmplitude() * 0.1;
+		static float bleachLvl = Settings::GetAmplitude() * 0.1;
 		if (GetZ() < bleachLvl) {
 			new Sand(this);
 		}
 
-		static float rockLvl = Map::GetInstance().GetAmplitude() * 0.7;
+		static float rockLvl = Settings::GetAmplitude() * 0.7;
 		if (GetZ() > rockLvl) {
 			new Rocky(this);
 		}
@@ -55,28 +55,54 @@ namespace Terrain {
 		styleClass.Set("fill", Land::GetSurfaceColor().Lighten(0.1).ToString());
 		svgImage->AddClass(styleClass);
 
-		//Land 2 Land
-		styleClass = Svg::StyleClass(".land.x.land2land");
-		styleClass.Set("fill", "url(#xland2land)");
-		svgImage->AddClass(styleClass);
-		styleClass = Svg::StyleClass(".land.y.land2land");
-		styleClass.Set("fill", "url(#yland2land)");
-		svgImage->AddClass(styleClass);
+		if (Settings::SmoothTerrainCross()) {
+			Svg::LinearGradient gradient;
 
-		Svg::LinearGradient gradient;
+			//Land 2 Land
+			styleClass = Svg::StyleClass(".land.x.land2land");
+			styleClass.Set("fill", "url(#xland2land)");
+			svgImage->AddClass(styleClass);
 
-		gradient = Svg::LinearGradient("xland2land");
-		gradient.SetPath(0.5, 0, 0.5, 1);
-		gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
-		gradient.AddStop(Svg::GradientStop(0.4, Land::GetSurfaceColor().Darken(0.1)));
-		gradient.AddStop(Svg::GradientStop(1, Svg::Color(173, 124, 86)));
-		svgImage->AddGradient(gradient);
+			gradient = Svg::LinearGradient("xland2land");
+			gradient.SetPath(0.42, 0, 0.58, 1);
+			gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.3, Land::GetSurfaceColor().Darken(0.1)));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(173, 124, 86)));
+			svgImage->AddGradient(gradient);
 
-		gradient = Svg::LinearGradient("yland2land");
-		gradient.SetPath(0.5, 0, 0.5, 1);
-		gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
-		gradient.AddStop(Svg::GradientStop(0.4, Land::GetSurfaceColor().Lighten(0.1)));
-		gradient.AddStop(Svg::GradientStop(1, Svg::Color(173, 124, 86)));
-		svgImage->AddGradient(gradient);
+			styleClass = Svg::StyleClass(".land.y.land2land");
+			styleClass.Set("fill", "url(#yland2land)");
+			svgImage->AddClass(styleClass);
+
+			gradient = Svg::LinearGradient("yland2land");
+			gradient.SetPath(0.6, 0, 0.4, 1);
+			gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.3, Land::GetSurfaceColor().Lighten(0.1)));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(173, 124, 86)));
+			svgImage->AddGradient(gradient);
+
+			//Land 2 Sand
+			styleClass = Svg::StyleClass(".land.x.land2sand");
+			styleClass.Set("fill", "url(#xland2sand)");
+			svgImage->AddClass(styleClass);
+
+			gradient = Svg::LinearGradient("xland2sand");
+			gradient.SetPath(0.42, 0, 0.58, 1);
+			gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.3, Land::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(255, 200, 0)));
+			svgImage->AddGradient(gradient);
+
+			styleClass = Svg::StyleClass(".land.y.land2sand");
+			styleClass.Set("fill", "url(#yland2sand)");
+			svgImage->AddClass(styleClass);
+
+			gradient = Svg::LinearGradient("yland2sand");
+			gradient.SetPath(0.6, 0, 0.4, 1);
+			gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.3, Land::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(255, 200, 0)));
+			svgImage->AddGradient(gradient);
+		}
 	}
 };

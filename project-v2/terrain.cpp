@@ -24,18 +24,18 @@ namespace Terrain {
 	void Base::SetY(int val) { Y = val; }
 	void Base::SetZ(int val) { 
 		Z = val;
-		Map::GetInstance().SetLowestPoint(Z);
+		Settings::SetLowestPoint(Z);
 	}
 
 	std::string Base::GetTransitionNameX() {
 		stringstream out;
-		out << GetName() << "2" << Map::GetInstance().GetTerrain(GetX() + 1, GetY())->GetName();
+		out << GetName() << "2" << Map::GetTerrain(GetX() + 1, GetY())->GetName();
 		return out.str();
 	}
 
 	std::string Base::GetTransitionNameY() {
 		stringstream out;
-		out << GetName() << "2" << Map::GetInstance().GetTerrain(GetX(), GetY() + 1)->GetName();
+		out << GetName() << "2" << Map::GetTerrain(GetX(), GetY() + 1)->GetName();
 		return out.str();
 	}
 
@@ -45,8 +45,8 @@ namespace Terrain {
 		SetY(base->GetY());
 		SetZ(base->GetZ());
 
-		delete Map::GetInstance().GetTerrain(GetX(), GetY());
-		Map::GetInstance().SetTerrain(GetX(), GetY(), this);
+		delete Map::GetTerrain(GetX(), GetY());
+		Map::SetTerrain(GetX(), GetY(), this);
 
 		//delete base;
 	}
@@ -73,7 +73,7 @@ namespace Terrain {
 			polygon.Clear();
 
 			tempZ = tempTer->GetZ();
-			if (tempZ < 0) if (Map::IsLowGraphic()) tempZ = 0;
+			if (tempZ < 0) if (Settings::IsLowGraphic()) tempZ = 0;
 
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
@@ -93,7 +93,7 @@ namespace Terrain {
 			polygon.Clear();
 
 			tempZ = tempTer->GetZ();
-			if (tempZ < 0) if (Map::IsLowGraphic()) tempZ = 0;
+			if (tempZ < 0) if (Settings::IsLowGraphic()) tempZ = 0;
 
 			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
@@ -116,13 +116,13 @@ namespace Terrain {
 		int tempZ;
 
 		//Kraniec mapy na X 
-		if (GetX() == Map::GetInstance().GetWidth() - 1) {
+		if (GetX() == Settings::GetWidth() - 1) {
 			polygon.Clear();
 
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Map::GetInstance().GetLowestPoint()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), Map::GetInstance().GetLowestPoint()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Settings::GetLowestPoint()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), Settings::GetLowestPoint()));
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceXClasses());
@@ -132,13 +132,13 @@ namespace Terrain {
 		}
 
 		//Kraniec mapy na Y
-		if (GetY() == Map::GetInstance().GetLength() - 1) {
+		if (GetY() == Settings::GetLength() - 1) {
 			polygon.Clear();
 
 			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, GetZ()));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, GetZ()));
-			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Map::GetInstance().GetLowestPoint()));
-			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, Map::GetInstance().GetLowestPoint()));
+			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, Settings::GetLowestPoint()));
+			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, Settings::GetLowestPoint()));
 
 			polygon.AddClass(GetSurfaceClasses());
 			polygon.AddClass(GetSurfaceYClasses());

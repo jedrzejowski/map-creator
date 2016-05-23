@@ -6,7 +6,7 @@
       <Filter>map</Filter>
     </ClCompile>
     <ClCompile Include="settings.cpp">
-      <Filter>settings</Filter>
+      <Filter>map\settings</Filter>
     </ClCompile>
     <ClCompile Include="terrain.cpp">
       <Filter>terrain</Filter>
@@ -22,9 +22,6 @@
     </ClCompile>
     <ClCompile Include="perlin.cpp">
       <Filter>perlin</Filter>
-    </ClCompile>
-    <ClCompile Include="map-gset.cpp">
-      <Filter>map</Filter>
     </ClCompile>
     <ClCompile Include="terrain-water.cpp">
       <Filter>terrain\water</Filter>
@@ -56,6 +53,9 @@
     <ClCompile Include="svg-gradient.cpp">
       <Filter>svg\gradient</Filter>
     </ClCompile>
+    <ClCompile Include="terrain-forrest.cpp">
+      <Filter>terrain\land\forest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -63,7 +63,7 @@
       <Filter>map</Filter>
     </ClInclude>
     <ClInclude Include="settings.h">
-      <Filter>settings</Filter>
+      <Filter>map\settings</Filter>
     </ClInclude>
     <ClInclude Include="error-code.h" />
     <ClInclude Include="terrain.h">
@@ -105,16 +105,17 @@
     <ClInclude Include="svg-gradient.h">
       <Filter>svg\gradient</Filter>
     </ClInclude>
+    <ClInclude Include="terrain-forrest.h">
+      <Filter>terrain\land\forest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />
+    <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="map">
       <UniqueIdentifier>{9d2b18b6-2a97-4d21-aede-719f63662dd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="settings">
-      <UniqueIdentifier>{f411fed5-3d36-4478-95c8-7376cc2fe006}</UniqueIdentifier>
     </Filter>
     <Filter Include="terrain">
       <UniqueIdentifier>{7402fe84-d5a1-41d7-9236-8379a791f770}</UniqueIdentifier>
@@ -154,6 +155,12 @@
     </Filter>
     <Filter Include="svg\gradient">
       <UniqueIdentifier>{17a56c2d-1209-45aa-a7ee-843d69d46a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map\settings">
+      <UniqueIdentifier>{f411fed5-3d36-4478-95c8-7376cc2fe006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\forest">
+      <UniqueIdentifier>{33300606-5ff7-47a9-aa98-fd4eebfaf5b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

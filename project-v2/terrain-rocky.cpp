@@ -45,6 +45,32 @@ namespace Terrain {
 		styleClass.Set("fill", Rocky::GetSurfaceColor().Lighten(0.1).ToString());
 		svgImage->AddClass(styleClass);
 
+		if (Settings::SmoothTerrainCross()) {
+			Svg::LinearGradient gradient;
+
+			//Rocky 2 Land
+			styleClass = Svg::StyleClass(".rocky.x.rocky2land");
+			styleClass.Set("fill", "url(#x-rocky2land)");
+			svgImage->AddClass(styleClass);
+
+			gradient = Svg::LinearGradient("x-rocky2land");
+			gradient.SetPath(0.42, 0, 0.58, 1);
+			gradient.AddStop(Svg::GradientStop(0, Rocky::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.3, Rocky::GetSurfaceColor().Darken(0.1)));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(126, 184, 88)));
+			svgImage->AddGradient(gradient);
+
+			styleClass = Svg::StyleClass(".rocky.y.rocky2land");
+			styleClass.Set("fill", "url(#y-rocky2land)");
+			svgImage->AddClass(styleClass);
+
+			gradient = Svg::LinearGradient("y-rocky2land");
+			gradient.SetPath(0.6, 0, 0.4, 1);
+			gradient.AddStop(Svg::GradientStop(0, Rocky::GetSurfaceColor()));
+			gradient.AddStop(Svg::GradientStop(0.3, Rocky::GetSurfaceColor().Lighten(0.1)));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(126, 184, 88)));
+			svgImage->AddGradient(gradient);
+		}
 
 	}
 };

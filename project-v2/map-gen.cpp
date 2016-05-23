@@ -13,18 +13,18 @@ void Map::GenerateSurface() {
 		mapSettings->Octaves, 
 		mapSettings->Randomseed);
 
-	for (int i = 0; i < GetWidth(); i++) {
+	for (int i = 0; i < Settings::GetWidth(); i++) {
 		surface.push_back(vector<Terrain::Base*>());
 
-		for (int j = 0; j < GetLength(); j++) {
+		for (int j = 0; j < Settings::GetLength(); j++) {
 			surface.at(i).push_back(new Terrain::Base(i, j, noise.GetHeight(i, j)));
 		}
 	}
 
 	cout << "Initialization ..." << endl;
 
-	for (int i = 0; i < GetWidth(); i++) 
-		for (int j = 0; j < GetLength(); j++) {
+	for (int i = 0; i < Settings::GetWidth(); i++)
+		for (int j = 0; j < Settings::GetLength(); j++) {
 			surface.at(i).at(j)->Init();
 		}
 

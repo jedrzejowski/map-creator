@@ -10,8 +10,8 @@ void Map::DrawMap(string path) {
 	styleClass.Set("stroke", "white");
 	outputImage->AddClass(styleClass);
 
-	for (int x = 0; x < GetWidth(); x++) {
-		for (int y = 0; y < GetLength(); y++) {
+	for (int x = 0; x < Settings::GetWidth(); x++) {
+		for (int y = 0; y < Settings::GetLength(); y++) {
 			Terrain::Base* temp = GetTerrain(x, y);
 
 			if(temp != NULL)

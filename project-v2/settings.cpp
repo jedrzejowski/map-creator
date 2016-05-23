@@ -115,3 +115,31 @@ printSettings:
 	printf(SETTINGS_PRINTF_INT, "randomseed", Randomseed);
 
 }
+
+int Settings::GetWidth() {
+	return Map::GetInstance().mapSettings->Width;
+}
+
+int Settings::GetLength() {
+	return  Map::GetInstance().mapSettings->Length;
+}
+
+int Settings::GetAmplitude() {
+	return  Map::GetInstance().mapSettings->Amplitude;
+}
+
+int Settings::GetLowestPoint() {
+	return  Map::GetInstance().LowestPoint;
+}
+
+void Settings::SetLowestPoint(int z) {
+	Map::GetInstance().LowestPoint = z < Map::GetInstance().LowestPoint ? z : Map::GetInstance().LowestPoint;
+}
+
+bool Settings::IsLowGraphic() {
+	return  Map::GetInstance().mapSettings->LowGraphic;
+}
+
+bool Settings::SmoothTerrainCross() {
+	return  Map::GetInstance().mapSettings->LowGraphic;
+}

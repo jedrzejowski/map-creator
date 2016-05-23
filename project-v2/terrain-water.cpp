@@ -5,7 +5,7 @@ namespace Terrain {
 	Water::Water(Base* base) {
 		InsertConstructor(base);
 
-		if (GetZ() < -(Map::GetInstance().GetAmplitude() / 4)) {
+		if (GetZ() < -(Settings::GetAmplitude() / 4)) {
 			new Deep(this);
 		}
 
@@ -67,7 +67,7 @@ namespace Terrain {
 	void Water::DrawOn(Svg::SvgImage* svgImage) {
 
 		// W Przypadku niskiej grafiki nie wysuje dna wodnego
-		if (Map::IsLowGraphic()) {
+		if (Settings::IsLowGraphic()) {
 			DrawWorldEdge(svgImage);
 		} else {
 			Terrain::Base::DrawOn(svgImage);
@@ -86,7 +86,7 @@ namespace Terrain {
 		svgImage->AddPolygon(polygon);
 
 		//Kraniec mapy na X 
-		if (GetX() == Map::GetInstance().GetWidth() - 1) {
+		if (GetX() == Settings::GetWidth() - 1) {
 			polygon.Clear();
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY(), 0));
 			polygon.AddPoint(Point::Transform(GetX() + 1, GetY() + 1, 0));
@@ -99,7 +99,7 @@ namespace Terrain {
 		}
 
 		//Kraniec mapy na Y
-		if (GetY() == Map::GetInstance().GetLength() - 1) {
+		if (GetY() == Settings::GetLength() - 1) {
 
 			polygon.Clear();
 			polygon.AddPoint(Point::Transform(GetX(), GetY() + 1, 0));
