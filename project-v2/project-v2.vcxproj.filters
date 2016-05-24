@@ -5,20 +5,38 @@
     <ClCompile Include="map.cpp">
       <Filter>map</Filter>
     </ClCompile>
+    <ClCompile Include="perlin.cpp">
+      <Filter>random\perlin</Filter>
+    </ClCompile>
     <ClCompile Include="settings.cpp">
       <Filter>map\settings</Filter>
-    </ClCompile>
-    <ClCompile Include="terrain.cpp">
-      <Filter>terrain</Filter>
     </ClCompile>
     <ClCompile Include="svg.cpp">
       <Filter>svg</Filter>
     </ClCompile>
-    <ClCompile Include="perlin.cpp">
-      <Filter>random\perlin</Filter>
+    <ClCompile Include="terrain.cpp">
+      <Filter>terrain</Filter>
     </ClCompile>
-    <ClCompile Include="terrain-water.cpp">
-      <Filter>terrain\water</Filter>
+    <ClCompile Include="random.cpp">
+      <Filter>random</Filter>
+    </ClCompile>
+    <ClCompile Include="color.cpp">
+      <Filter>svg\color</Filter>
+    </ClCompile>
+    <ClCompile Include="point.cpp">
+      <Filter>svg\point</Filter>
+    </ClCompile>
+    <ClCompile Include="svg-figures.cpp">
+      <Filter>svg\figures</Filter>
+    </ClCompile>
+    <ClCompile Include="svg-gradient.cpp">
+      <Filter>svg\gradient</Filter>
+    </ClCompile>
+    <ClCompile Include="svg-style.cpp">
+      <Filter>svg\style</Filter>
+    </ClCompile>
+    <ClCompile Include="svg-text.cpp">
+      <Filter>svg\text</Filter>
     </ClCompile>
     <ClCompile Include="terrain-land.cpp">
       <Filter>terrain\land</Filter>
@@ -26,59 +44,57 @@
     <ClCompile Include="terrain-deep.cpp">
       <Filter>terrain\water\deep</Filter>
     </ClCompile>
-    <ClCompile Include="terrain-sand.cpp">
-      <Filter>terrain\land\sand</Filter>
-    </ClCompile>
-    <ClCompile Include="terrain-rocky.cpp">
-      <Filter>terrain\land\rocky</Filter>
-    </ClCompile>
-    <ClCompile Include="point.cpp">
-      <Filter>svg\point</Filter>
-    </ClCompile>
-    <ClCompile Include="svg-figures.cpp">
-      <Filter>svg\figure</Filter>
-    </ClCompile>
-    <ClCompile Include="color.cpp">
-      <Filter>svg\color</Filter>
-    </ClCompile>
-    <ClCompile Include="svg-style.cpp">
-      <Filter>svg\style</Filter>
-    </ClCompile>
-    <ClCompile Include="svg-gradient.cpp">
-      <Filter>svg\gradient</Filter>
+    <ClCompile Include="terrain-water.cpp">
+      <Filter>terrain\water</Filter>
     </ClCompile>
     <ClCompile Include="terrain-forest.cpp">
       <Filter>terrain\land\forest</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="random.cpp">
-      <Filter>random</Filter>
-=======
-    <ClCompile Include="svg-text.cpp">
-      <Filter>svg\text</Filter>
->>>>>>> b3b96a78a1e469a226cbea35df14f141b216eba3
+    <ClCompile Include="terrain-rocky.cpp">
+      <Filter>terrain\land\rocky</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain-sand.cpp">
+      <Filter>terrain\land\sand</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="error-code.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="map.h">
       <Filter>map</Filter>
     </ClInclude>
+    <ClInclude Include="perlin.h">
+      <Filter>random\perlin</Filter>
+    </ClInclude>
     <ClInclude Include="settings.h">
       <Filter>map\settings</Filter>
-    </ClInclude>
-    <ClInclude Include="error-code.h" />
-    <ClInclude Include="terrain.h">
-      <Filter>terrain</Filter>
     </ClInclude>
     <ClInclude Include="svg.h">
       <Filter>svg</Filter>
     </ClInclude>
-    <ClInclude Include="perlin.h">
-      <Filter>random\perlin</Filter>
+    <ClInclude Include="terrain.h">
+      <Filter>terrain</Filter>
     </ClInclude>
-    <ClInclude Include="terrain-water.h">
-      <Filter>terrain\water</Filter>
+    <ClInclude Include="random.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>svg\color</Filter>
+    </ClInclude>
+    <ClInclude Include="point.h">
+      <Filter>svg\point</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-figures.h">
+      <Filter>svg\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-gradient.h">
+      <Filter>svg\gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-style.h">
+      <Filter>svg\style</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-text.h">
+      <Filter>svg\text</Filter>
     </ClInclude>
     <ClInclude Include="terrain-land.h">
       <Filter>terrain\land</Filter>
@@ -86,102 +102,80 @@
     <ClInclude Include="terrain-deep.h">
       <Filter>terrain\water\deep</Filter>
     </ClInclude>
-    <ClInclude Include="terrain-sand.h">
-      <Filter>terrain\land\sand</Filter>
-    </ClInclude>
-    <ClInclude Include="terrain-rocky.h">
-      <Filter>terrain\land\rocky</Filter>
-    </ClInclude>
-    <ClInclude Include="point.h">
-      <Filter>svg\point</Filter>
-    </ClInclude>
-    <ClInclude Include="svg-figures.h">
-      <Filter>svg\figure</Filter>
-    </ClInclude>
-    <ClInclude Include="color.h">
-      <Filter>svg\color</Filter>
-    </ClInclude>
-    <ClInclude Include="svg-style.h">
-      <Filter>svg\style</Filter>
-    </ClInclude>
-    <ClInclude Include="svg-gradient.h">
-      <Filter>svg\gradient</Filter>
+    <ClInclude Include="terrain-water.h">
+      <Filter>terrain\water</Filter>
     </ClInclude>
     <ClInclude Include="terrain-forest.h">
       <Filter>terrain\land\forest</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="random.h">
-      <Filter>random</Filter>
-=======
-    <ClInclude Include="svg-text.h">
-      <Filter>svg\text</Filter>
->>>>>>> b3b96a78a1e469a226cbea35df14f141b216eba3
+    <ClInclude Include="terrain-rocky.h">
+      <Filter>terrain\land\rocky</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain-sand.h">
+      <Filter>terrain\land\sand</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="input.ini" />
     <None Include=".gitignore" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="map">
-      <UniqueIdentifier>{9d2b18b6-2a97-4d21-aede-719f63662dd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain">
-      <UniqueIdentifier>{7402fe84-d5a1-41d7-9236-8379a791f770}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="svg">
-      <UniqueIdentifier>{0797fc2d-bb9c-4f3f-9676-ccd4dc4e1c62}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\water">
-      <UniqueIdentifier>{2b63fad0-3203-4f76-91c8-3f7feec0e1c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\land">
-      <UniqueIdentifier>{7ed562a7-250e-4135-9351-2ae294d1fe78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\land\rocky">
-      <UniqueIdentifier>{9bf143c9-0981-43af-a1f3-f73ca8c451a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\water\deep">
-      <UniqueIdentifier>{7feb1593-c22d-48f0-b944-c90589a7a835}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\land\sand">
-      <UniqueIdentifier>{ef830ce6-7143-4f4c-ac0e-125bbb06338b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="svg\point">
-      <UniqueIdentifier>{94469a22-fadc-4dbd-bc87-d06849fc6a32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="svg\color">
-      <UniqueIdentifier>{7db53871-e799-4d98-98ae-92493b781cd4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="svg\figure">
-      <UniqueIdentifier>{c320f801-4315-4c32-9da7-2e333cee7d37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="svg\style">
-      <UniqueIdentifier>{bd8c13fc-4d28-4244-9958-d6495dbdf88b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="svg\gradient">
-      <UniqueIdentifier>{17a56c2d-1209-45aa-a7ee-843d69d46a4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="map\settings">
-      <UniqueIdentifier>{f411fed5-3d36-4478-95c8-7376cc2fe006}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="terrain\land\forest">
-      <UniqueIdentifier>{33300606-5ff7-47a9-aa98-fd4eebfaf5b9}</UniqueIdentifier>
-    </Filter>
-<<<<<<< HEAD
-    <Filter Include="random">
-      <UniqueIdentifier>{ee81ed88-bb20-4b44-ac75-da1439a4288f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="random\perlin">
-      <UniqueIdentifier>{66894196-f40f-4e68-8e0a-dadd423f8671}</UniqueIdentifier>
-=======
-    <Filter Include="svg\text">
-      <UniqueIdentifier>{2afbfeec-e09d-4297-a4ce-9e19d815edda}</UniqueIdentifier>
->>>>>>> b3b96a78a1e469a226cbea35df14f141b216eba3
-    </Filter>
+    <None Include="input.ini" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="map">
+      <UniqueIdentifier>{64db0e42-335c-40e9-8cc1-4176a65515f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map\settings">
+      <UniqueIdentifier>{1db6e288-8f32-4280-bba4-8c4a28d48860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg">
+      <UniqueIdentifier>{65e5a519-8412-4f4f-a17b-204e110948fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="random">
+      <UniqueIdentifier>{a69d1ed9-54a5-4f32-9f17-318fc84460f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="random\perlin">
+      <UniqueIdentifier>{e441e3a6-af44-481b-9aa8-2628beba764f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain">
+      <UniqueIdentifier>{1b51ea52-7152-4ae0-bfde-e186f539cd28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\color">
+      <UniqueIdentifier>{61d1df70-f23f-424f-a4e3-ec41840d791b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\point">
+      <UniqueIdentifier>{56781043-5e87-4db4-a787-639c57a23675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\figures">
+      <UniqueIdentifier>{3146449e-3c6c-49e1-ab78-fda0b0aff78b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\gradient">
+      <UniqueIdentifier>{b854e1a6-445c-4e06-b1f3-770445319256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\style">
+      <UniqueIdentifier>{709034ed-28ca-4c9b-bdce-3783d976bcd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\text">
+      <UniqueIdentifier>{075b79dc-d6a7-4ef4-9591-2bd87fdb51f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land">
+      <UniqueIdentifier>{01588fda-a00b-4a8d-8ea4-513d0be32528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\water">
+      <UniqueIdentifier>{fc559087-939a-44e5-8b1a-34644bc0abdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\water\deep">
+      <UniqueIdentifier>{f826ca85-03e8-4163-a75f-2e58eb9940d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\forest">
+      <UniqueIdentifier>{24d957e8-df4a-4958-9bed-ea73a7ac8387}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\rocky">
+      <UniqueIdentifier>{b47b1a68-7957-42b1-8e30-697a50dc8ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain\land\sand">
+      <UniqueIdentifier>{1382f77d-b841-4709-b175-11c18286e296}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
