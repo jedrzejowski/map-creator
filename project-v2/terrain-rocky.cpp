@@ -1,23 +1,23 @@
 #include "header.h"
 
 namespace Terrain {
+	static PerlinNoise* perlinNoise;
 
 	Rocky::Rocky(Land* base) {
 		InsertConstructor(base);
 	}
 
 	void Rocky::Init() {
+		if (perlinNoise == NULL) {
+			perlinNoise = new PerlinNoise(
+				Settings::GetPersistence(),
+				Settings::GetFrequency(),
+				Settings::GetAmplitude(),
+				Settings::GetOctaves(),
+				Settings::GetRandomseed()/2);
+		}
 
-		pattern = rand() % ROCKY_COLOR_LIB_LENGTH;
-
-		if (Map::GetTerrain(GetX() + 1, GetY())->GetZ() > GetZ())
-			pattern += ROCKY_COLOR_LIB_LENGTH / 5;
-
-		if (Map::GetTerrain(GetX() + 1, GetY())->GetZ() < GetZ())
-			pattern -= ROCKY_COLOR_LIB_LENGTH / 5;
-
-		if (pattern < 0)pattern = 0;
-		if (pattern >= ROCKY_COLOR_LIB_LENGTH)pattern = ROCKY_COLOR_LIB_LENGTH - 1;
+		pattern = (int)perlinNoise->GetHeight(GetX(), GetY()) % ROCKY_COLOR_HUE;
 
 		lake = rand() % 150 == 0 ? true : false;
 	}
@@ -41,69 +41,57 @@ namespace Terrain {
 
 		Svg::StyleClass styleClass;
 
-		styleClass = Svg::StyleClass(".rocky");
-		styleClass.Set("fill", Rocky::GetSurfaceColor().ToString());
+		styleClass = Svg::StyleClass::FillClass(".rocky", Rocky::GetSurfaceColor());
 		styleClass.Set("stroke", "dimgray");
 		svgImage->AddClass(styleClass);
 
-		styleClass = Svg::StyleClass(".rocky.x");
-		styleClass.Set("fill", Rocky::GetSurfaceColor().Darken(0.1).ToString());
-		svgImage->AddClass(styleClass);
+		svgImage->AddClass(Svg::StyleClass::FillClass(".rocky.x", Rocky::GetSurfaceColor().Darken(0.1)));
+		svgImage->AddClass(Svg::StyleClass::FillClass(".rocky.y", Rocky::GetSurfaceColor().Lighten(0.1)));
 
-		styleClass = Svg::StyleClass(".rocky.y");
-		styleClass.Set("fill", Rocky::GetSurfaceColor().Lighten(0.1).ToString());
-		svgImage->AddClass(styleClass);
 
+		//Style bazuj¹ce na mozaice
 		stringstream stream;
-		for (int i = 0; i < ROCKY_COLOR_LIB_LENGTH; i++ ) {
-			Svg::Color color = Rocky::GetSurfaceColor().Darken(((float)i) * (1.0f / (ROCKY_COLOR_LIB_LENGTH + 40.0f)));
-		
-			styleClass = Svg::StyleClass(".rocky.pattern" + to_string(i));
-			styleClass.Set("fill", color.ToString());
-			styleClass.Set("stroke", "dimgray");
-			svgImage->AddClass(styleClass);
+		for (int i = 0; i < ROCKY_COLOR_HUE; i++ ) {
+			Svg::Color pattern = Rocky::GetSurfaceColor().Darken(((float)i) * (1.0f / (ROCKY_COLOR_HUE + 80.0f)));
+			std::string index = to_string(i);
 
-			styleClass = Svg::StyleClass(".rocky.x.pattern" + to_string(i));
-			styleClass.Set("fill", color.Darken(0.1).ToString());
-			svgImage->AddClass(styleClass);
+			svgImage->AddClass(Svg::StyleClass::FillClass(
+				".rocky.pattern" + index, pattern));
 
-			styleClass = Svg::StyleClass(".rocky.y.patern" + to_string(i));
-			styleClass.Set("fill", color.Lighten(0.1).ToString());
-			svgImage->AddClass(styleClass);
+			svgImage->AddClass(Svg::StyleClass::FillClass(
+				".rocky.x.pattern" + index, pattern.Darken(0.1)));
+
+			svgImage->AddClass(Svg::StyleClass::FillClass(
+				".rocky.y.pattern" + index, pattern.Lighten(0.1)));
+
+			if (Settings::SmoothTerrainCross()) {
+				Svg::LinearGradient gradient;
+
+				//Rocky 2 Land
+				svgImage->AddClass(Svg::StyleClass::FillClass(
+					".rocky.x.rocky2land.pattern" + index, "url(#x-rocky2land-" + index + ")"));
+
+				gradient = Svg::LinearGradient("x-rocky2land-" + to_string(i));
+				gradient.SetPath(0.42, 0, 0.58, 1);
+				gradient.AddStop(Svg::GradientStop(0, pattern));
+				gradient.AddStop(Svg::GradientStop(0.3, pattern.Darken(0.1)));
+				gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(126, 184, 88)));
+				svgImage->AddGradient(gradient);
+
+				svgImage->AddClass(Svg::StyleClass::FillClass(
+					".rocky.y.rocky2land.pattern" + index, "url(#y-rocky2land-" + index + ")"));
+
+				gradient = Svg::LinearGradient("y-rocky2land-" + to_string(i));
+				gradient.SetPath(0.6, 0, 0.4, 1);
+				gradient.AddStop(Svg::GradientStop(0, pattern));
+				gradient.AddStop(Svg::GradientStop(0.3, pattern.Lighten(0.1)));
+				gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(126, 184, 88)));
+				svgImage->AddGradient(gradient);
+			}
 		}
 
-		styleClass = Svg::StyleClass(".rocky.lake");
-		styleClass.Set("fill", Svg::Color(173, 216, 230).ToString());
-		svgImage->AddClass(styleClass);
-
-		
-
-		/*if (Settings::SmoothTerrainCross()) {
-			Svg::LinearGradient gradient;
-
-			//Rocky 2 Land
-			styleClass = Svg::StyleClass(".rocky.x.rocky2land");
-			styleClass.Set("fill", "url(#x-rocky2land)");
-			svgImage->AddClass(styleClass);
-
-			gradient = Svg::LinearGradient("x-rocky2land");
-			gradient.SetPath(0.42, 0, 0.58, 1);
-			gradient.AddStop(Svg::GradientStop(0, Rocky::GetSurfaceColor()));
-			gradient.AddStop(Svg::GradientStop(0.3, Rocky::GetSurfaceColor().Darken(0.1)));
-			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(126, 184, 88)));
-			svgImage->AddGradient(gradient);
-
-			styleClass = Svg::StyleClass(".rocky.y.rocky2land");
-			styleClass.Set("fill", "url(#y-rocky2land)");
-			svgImage->AddClass(styleClass);
-
-			gradient = Svg::LinearGradient("y-rocky2land");
-			gradient.SetPath(0.6, 0, 0.4, 1);
-			gradient.AddStop(Svg::GradientStop(0, Rocky::GetSurfaceColor()));
-			gradient.AddStop(Svg::GradientStop(0.3, Rocky::GetSurfaceColor().Lighten(0.1)));
-			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(126, 184, 88)));
-			svgImage->AddGradient(gradient);
-		}*/
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".rocky.lake", Svg::Color(173, 216, 230)));
 
 	}
 

@@ -74,11 +74,11 @@ void Map::GenerateSurface() {
 	cout << "Randomizing surface ..." << endl;
 
 	PerlinNoise noise = PerlinNoise(
-		mapSettings->Persistence,
-		mapSettings->Frequency,
-		mapSettings->Amplitude,
-		mapSettings->Octaves,
-		mapSettings->Randomseed);
+		Settings::GetPersistence(),
+		Settings::GetFrequency(),
+		Settings::GetAmplitude(),
+		Settings::GetOctaves(),
+		Settings::GetRandomseed());
 
 	for (int i = 0; i < Settings::GetWidth(); i++) {
 		surface.push_back(vector<Terrain::Base*>());

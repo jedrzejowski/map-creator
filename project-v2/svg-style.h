@@ -16,5 +16,8 @@ namespace Svg {
 
 		void SetName(std::string val);
 		std::string GetName();
+
+		static StyleClass FillClass(std::string name, std::string fill);
+		static StyleClass FillClass(std::string name, Color color);
 	};
 };

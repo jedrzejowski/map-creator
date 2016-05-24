@@ -125,8 +125,24 @@ int Settings::GetLength() {
 	return  Map::GetInstance().mapSettings->Length;
 }
 
-int Settings::GetAmplitude() {
-	return  Map::GetInstance().mapSettings->Amplitude;
+double Settings::GetPersistence() {
+	return Map::GetInstance().mapSettings->Persistence;
+}
+
+double Settings::GetFrequency() {
+	return Map::GetInstance().mapSettings->Frequency;
+}
+
+double Settings::GetAmplitude() {
+	return Map::GetInstance().mapSettings->Amplitude;
+}
+
+int Settings::GetOctaves() {
+	return Map::GetInstance().mapSettings->Octaves;
+}
+
+int Settings::GetRandomseed() {
+	return Map::GetInstance().mapSettings->Randomseed;
 }
 
 int Settings::GetLowestPoint() {

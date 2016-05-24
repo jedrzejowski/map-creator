@@ -143,6 +143,7 @@
     <ClCompile Include="perlin.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="program.cpp" />
+    <ClCompile Include="random.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="svg-figures.cpp" />
     <ClCompile Include="svg-gradient.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="map.h" />
     <ClInclude Include="perlin.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="random.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="svg-figures.h" />
     <ClInclude Include="svg-gradient.h" />

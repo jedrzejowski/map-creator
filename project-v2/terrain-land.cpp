@@ -90,7 +90,7 @@ namespace Terrain {
 			gradient.SetPath(0.42, 0, 0.58, 1);
 			gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
 			gradient.AddStop(Svg::GradientStop(0.3, Land::GetSurfaceColor()));
-			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(255, 200, 0)));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(255, 200, 0).Darken(0.1)));
 			svgImage->AddGradient(gradient);
 
 			styleClass = Svg::StyleClass(".land.y.land2sand");
@@ -101,7 +101,7 @@ namespace Terrain {
 			gradient.SetPath(0.6, 0, 0.4, 1);
 			gradient.AddStop(Svg::GradientStop(0, Land::GetSurfaceColor()));
 			gradient.AddStop(Svg::GradientStop(0.3, Land::GetSurfaceColor()));
-			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(255, 200, 0)));
+			gradient.AddStop(Svg::GradientStop(0.8, Svg::Color(255, 200, 0).Darken(0.1)));
 			svgImage->AddGradient(gradient);
 		}
 	}

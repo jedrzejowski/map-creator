@@ -29,7 +29,20 @@ namespace Svg {
 	void StyleClass::SetName(std::string val) {
 		Name = val;
 	}
+
 	std::string StyleClass::GetName() {
 		return Name;
+	}
+
+	StyleClass StyleClass::FillClass(std::string name, std::string fill) {
+		StyleClass styleClass = StyleClass(name);
+		styleClass.Set("fill", fill);
+		return styleClass;
+	}
+
+	StyleClass StyleClass::FillClass(std::string name, Color color) {
+		StyleClass styleClass = StyleClass(name);
+		styleClass.Set("fill", color.ToString());
+		return styleClass;
 	}
 };

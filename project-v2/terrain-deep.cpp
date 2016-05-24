@@ -6,12 +6,20 @@ namespace Terrain {
 		InsertConstructor(base);
 	}
 
+	Svg::Color Deep::GetSurfaceColor() {
+		return Svg::Color(173, 124, 86);//Svg::Color(255, 200, 0);
+	}
+
 	Svg::Color Deep::GetWaterColor() {
 		return Svg::Color(124, 183, 243, 0.75);
 	}
 
 	std::string Deep::GetWaterClasses() {
 		return "water deep";
+	}
+
+	std::string Deep::GetSurfaceClasses() {
+		return "water-bottom deep";
 	}
 
 	std::string Deep::GetName() {
@@ -25,9 +33,16 @@ namespace Terrain {
 
 		Svg::StyleClass styleClass;
 
-		styleClass = Svg::StyleClass(".water.deep");
-		styleClass.Set("fill", GetWaterColor().ToString());
-		svgImage->AddClass(styleClass);
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".water.deep", Deep::GetWaterColor()));
 
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".water-bottom.deep", Deep::GetSurfaceColor()));
+
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".water-bottom.x.deep", Deep::GetSurfaceColor().Darken(0.1)));
+
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".water-bottom.y.deep", Deep::GetSurfaceColor().Lighten(0.1)));
 	}
 }

@@ -5,12 +5,29 @@ namespace Terrain {
 		InsertConstructor(base);
 	}
 
+	void Sand::Init() {
+
+		float tempRadius;
+		for (int x = -SAND_WATER_DISTANCE; x < SAND_WATER_DISTANCE; x++) {
+			for (int y = -SAND_WATER_DISTANCE; y < SAND_WATER_DISTANCE; y++) {
+				tempRadius = sqrt(x*x + y*y);
+				if (tempRadius <= SAND_WATER_DISTANCE)
+					if (typeid(*Map::GetTerrain(GetX() + x, GetY() + y)) == typeid(Water)) {
+						dist2Water = tempRadius < dist2Water ? tempRadius : dist2Water;
+					}
+			}
+		}
+	}
+
 	Svg::Color Sand::GetSurfaceColor() {
 		return Svg::Color(255, 200, 0);
 	}
 
 	std::string Sand::GetSurfaceClasses() {
-		return "sand";
+		if(dist2Water == SAND_WATER_DISTANCE)
+			return "sand";
+
+		return "sand pattern" + to_string((int)dist2Water);
 	}
 
 	std::string Sand::GetName() {
@@ -24,16 +41,26 @@ namespace Terrain {
 
 		Svg::StyleClass styleClass;
 
-		styleClass = Svg::StyleClass(".sand");
-		styleClass.Set("fill", Sand::GetSurfaceColor().ToString());
-		svgImage->AddClass(styleClass);
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".sand", Sand::GetSurfaceColor()));
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".sand.x", Sand::GetSurfaceColor().Darken(0.1)));
+		svgImage->AddClass(Svg::StyleClass::FillClass(
+			".sand.y", Sand::GetSurfaceColor().Lighten(0.1)));
 
-		styleClass = Svg::StyleClass(".sand.x");
-		styleClass.Set("fill", Sand::GetSurfaceColor().Darken(0.1).ToString());
-		svgImage->AddClass(styleClass);
+		if (!Settings::IsLowGraphic()){
 
-		styleClass = Svg::StyleClass(".sand.y");
-		styleClass.Set("fill", Sand::GetSurfaceColor().Lighten(0.1).ToString());
-		svgImage->AddClass(styleClass);
+			for (int i = 0; i < SAND_WATER_DISTANCE; i++) {
+				Svg::Color pattern = Sand::GetSurfaceColor().Darken((SAND_WATER_DISTANCE - i) / (SAND_WATER_DISTANCE + 15.0f));
+				std::string index = to_string(i);
+
+				svgImage->AddClass(Svg::StyleClass::FillClass(
+					".sand.pattern" + index, pattern));
+				svgImage->AddClass(Svg::StyleClass::FillClass(
+					".sand.x.pattern" + index, pattern.Darken(0.1)));
+				svgImage->AddClass(Svg::StyleClass::FillClass(
+					".sand.y.pattern" + index, pattern.Lighten(0.1)));
+			}
+		}
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "terrain.h"
 
-#define ROCKY_COLOR_LIB_LENGTH 15
+#define ROCKY_COLOR_HUE 15
 
 namespace Terrain {
 
@@ -9,6 +9,7 @@ namespace Terrain {
 	private:
 		int pattern = -1;
 		bool lake = false;
+
 	public:
 		Rocky() { };
 		Rocky(Land* terrain);

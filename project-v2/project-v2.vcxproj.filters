@@ -15,7 +15,7 @@
       <Filter>svg</Filter>
     </ClCompile>
     <ClCompile Include="perlin.cpp">
-      <Filter>perlin</Filter>
+      <Filter>random\perlin</Filter>
     </ClCompile>
     <ClCompile Include="terrain-water.cpp">
       <Filter>terrain\water</Filter>
@@ -50,6 +50,9 @@
     <ClCompile Include="terrain-forest.cpp">
       <Filter>terrain\land\forest</Filter>
     </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>random</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -67,7 +70,7 @@
       <Filter>svg</Filter>
     </ClInclude>
     <ClInclude Include="perlin.h">
-      <Filter>perlin</Filter>
+      <Filter>random\perlin</Filter>
     </ClInclude>
     <ClInclude Include="terrain-water.h">
       <Filter>terrain\water</Filter>
@@ -102,6 +105,9 @@
     <ClInclude Include="terrain-forest.h">
       <Filter>terrain\land\forest</Filter>
     </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>random</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.ini" />
@@ -116,9 +122,6 @@
     </Filter>
     <Filter Include="svg">
       <UniqueIdentifier>{0797fc2d-bb9c-4f3f-9676-ccd4dc4e1c62}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="perlin">
-      <UniqueIdentifier>{66894196-f40f-4e68-8e0a-dadd423f8671}</UniqueIdentifier>
     </Filter>
     <Filter Include="terrain\water">
       <UniqueIdentifier>{2b63fad0-3203-4f76-91c8-3f7feec0e1c5}</UniqueIdentifier>
@@ -155,6 +158,12 @@
     </Filter>
     <Filter Include="terrain\land\forest">
       <UniqueIdentifier>{33300606-5ff7-47a9-aa98-fd4eebfaf5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="random">
+      <UniqueIdentifier>{ee81ed88-bb20-4b44-ac75-da1439a4288f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="random\perlin">
+      <UniqueIdentifier>{66894196-f40f-4e68-8e0a-dadd423f8671}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

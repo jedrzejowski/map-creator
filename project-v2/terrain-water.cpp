@@ -12,7 +12,7 @@ namespace Terrain {
 	}
 
 	Svg::Color Water::GetSurfaceColor() {
-		return Svg::Color(255, 200, 0);
+		return Svg::Color(214, 168, 0);	//Svg::Color(255, 200, 0);
 	}
 
 	Svg::Color Water::GetWaterColor() {
