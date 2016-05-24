@@ -23,12 +23,11 @@ namespace Svg {
 	SvgImage::SvgImage(int w, int h) : 
 		styleClasses() {
 
-		content = new stringstream();
 		Width = w;
 		Height = h;
 	}
 
-	void SvgImage::save(std::string path) {
+	void SvgImage::Save(std::string path) {
 		ofstream file;
 		file.open(path);
 			
@@ -46,15 +45,22 @@ namespace Svg {
 			file << linearGradients[i].ToString();
 		file << "</defs>";
 
-		file << content->str();
-
+		file << content;
 		file << "</svg>";
 
 		file.close();
 	};
 
-	void SvgImage::AddPolygon(Polygon& polygon) {
-		(*content) << polygon.ToString();
+	void SvgImage::AddPolygon(Polygon polygon) {
+		content += polygon.ToString();
+	}
+
+	void SvgImage::AddRaw(std::string raw) {
+		content += raw;
+	}
+
+	void SvgImage::AddText(Text text) {
+		content += text.ToString();
 	}
 
 	void SvgImage::AddClass(StyleClass classProps) {

@@ -50,8 +50,13 @@
     <ClCompile Include="terrain-forest.cpp">
       <Filter>terrain\land\forest</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="random.cpp">
       <Filter>random</Filter>
+=======
+    <ClCompile Include="svg-text.cpp">
+      <Filter>svg\text</Filter>
+>>>>>>> b3b96a78a1e469a226cbea35df14f141b216eba3
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,8 +110,13 @@
     <ClInclude Include="terrain-forest.h">
       <Filter>terrain\land\forest</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="random.h">
       <Filter>random</Filter>
+=======
+    <ClInclude Include="svg-text.h">
+      <Filter>svg\text</Filter>
+>>>>>>> b3b96a78a1e469a226cbea35df14f141b216eba3
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -159,11 +169,16 @@
     <Filter Include="terrain\land\forest">
       <UniqueIdentifier>{33300606-5ff7-47a9-aa98-fd4eebfaf5b9}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="random">
       <UniqueIdentifier>{ee81ed88-bb20-4b44-ac75-da1439a4288f}</UniqueIdentifier>
     </Filter>
     <Filter Include="random\perlin">
       <UniqueIdentifier>{66894196-f40f-4e68-8e0a-dadd423f8671}</UniqueIdentifier>
+=======
+    <Filter Include="svg\text">
+      <UniqueIdentifier>{2afbfeec-e09d-4297-a4ce-9e19d815edda}</UniqueIdentifier>
+>>>>>>> b3b96a78a1e469a226cbea35df14f141b216eba3
     </Filter>
   </ItemGroup>
   <ItemGroup>
