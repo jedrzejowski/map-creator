@@ -46,29 +46,6 @@ void Map::SetTerrain(int x, int y, Terrain::Base* terrain) {
 	GetInstance().surface.at(x).at(y) = terrain;
 }
 
-void Map::DrawMap(string path) {
-	cout << "Drawing ..." << endl;
-
-	outputImage = new Svg::SvgImage(100000, 100000);
-
-	Svg::StyleClass styleClass = Svg::StyleClass("polygon");
-	styleClass.Set("stroke-width", "0.5");
-	styleClass.Set("stroke", "white");
-	outputImage->AddClass(styleClass);
-
-	for (int x = 0; x < Settings::GetWidth(); x++) {
-		for (int y = 0; y < Settings::GetLength(); y++) {
-			Terrain::Base* temp = GetTerrain(x, y);
-
-			if (temp != NULL)
-				temp->DrawOn(outputImage);
-			temp->InsertDefs(outputImage);
-		}
-	}
-
-	outputImage->save(path);
-}
-
 void Map::GenerateSurface() {
 
 	cout << "Randomizing surface ..." << endl;
@@ -96,4 +73,36 @@ void Map::GenerateSurface() {
 			surface.at(i).at(j)->Init();
 		}
 
+}
+
+void Map::DrawMap(string path) {
+	cout << "Drawing ..." << endl;
+
+	int w, h;
+	
+	outputImage = new Svg::SvgImage(
+		Point::Transform(0, 0, Settings::GetAmplitude()).X + Point::Transform(Settings::GetWidth(), Settings::GetLength(), -Settings::GetAmplitude()).X,
+		Point::Transform(0, 0, Settings::GetAmplitude()).Y + Point::Transform(Settings::GetWidth(), Settings::GetLength(), -Settings::GetAmplitude()).Y);
+
+	//Watermark
+	outputImage->AddText(Svg::Text("Map Creator", Svg::Color(), 100, 100));
+	outputImage->AddText(Svg::Text("by Adam Jedrzejowski", Svg::Color(), 100, 120));
+
+	Svg::StyleClass styleClass = Svg::StyleClass("polygon");
+	styleClass.Set("stroke-width", "0.5");
+	styleClass.Set("stroke", "white");
+	outputImage->AddClass(styleClass);
+
+	for (int x = 0; x < Settings::GetWidth(); x++) {
+		for (int y = 0; y < Settings::GetLength(); y++) {
+			Terrain::Base* temp = GetTerrain(x, y);
+
+			if (temp != NULL) {
+				temp->DrawOn(outputImage);
+				temp->InsertDefs(outputImage);
+			}
+		}
+	}
+
+	outputImage->Save(path);
 }

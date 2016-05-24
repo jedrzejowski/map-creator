@@ -5,6 +5,7 @@
 #include "svg-figures.h"
 #include "svg-style.h"
 #include "svg-gradient.h"
+#include "svg-text.h"
 
 namespace Svg {
 	/**
@@ -13,7 +14,7 @@ namespace Svg {
 	*/
 	class SvgImage {
 	private:
-		stringstream *content, *styles;//<! Stream z tekstem do wyjœcia do pliku
+		string content;//<! Stream z tekstem do wyjœcia do pliku
 		int Height, //<! Wysokoœæ obrazu
 			Width; //<! Szerokoœæ obrazu
 
@@ -32,12 +33,14 @@ namespace Svg {
 		* Funkcja zapisuj¹ca do pliku
 		* @param path Scie¿ka do pliku wyjœciowego
 		*/
-		void save(std::string path);
+		void Save(std::string path);
 
 		void AddClass(StyleClass classProps);
 		void AddGradient(LinearGradient gradient);
 
 
-		void AddPolygon(Polygon& polygon);
+		void AddPolygon(Polygon polygon);
+		void AddRaw(std::string content);
+		void AddText(Text text);
 	};
 };

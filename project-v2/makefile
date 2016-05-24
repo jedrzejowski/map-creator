@@ -16,6 +16,7 @@ Objects=\
 	$(BinDir)/svg-figures.o\
 	$(BinDir)/svg-style.o\
 	$(BinDir)/svg-gradient.o\
+	$(BinDir)/svg-text.o\
 	$(BinDir)/terrain.o\
 	$(BinDir)/terrain-land.o\
 	$(BinDir)/terrain-forest.o\
@@ -70,6 +71,9 @@ $(BinDir)/svg-style.o: svg-style.cpp svg-style.h
 	$(Gpp)
 
 $(BinDir)/svg-gradient.o: svg-gradient.cpp svg-gradient.h
+	$(Gpp)
+
+$(BinDir)/svg-text.o: svg-text.cpp svg-text.h
 	$(Gpp)
 
 #

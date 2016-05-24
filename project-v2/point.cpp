@@ -32,11 +32,10 @@ Point::Point(float x, float y, float z) {
 	Z = z;
 }
 
-double trans[][2] =
-	{
-		{ 0.6, -0.4 },
-		{ 0.4, 0.6 }
-	};
+double trans[][2] ={
+	{ 0.6, -0.4 },
+	{ 0.4, 0.6 }
+};
 
 Point Point::Transform(float x, float y, float z) {
 	x = 50 * x - Settings::GetWidth() * 50 / 2;
@@ -49,7 +48,7 @@ Point Point::Transform(float x, float y, float z) {
 	y = y + Settings::GetLength() * 50 / 2;
 
 	y = y - 3 * z;
-	y = y + 3 * Settings::GetAmplitude() / 1.5;
+	//y = y + 3 * Settings::GetAmplitude() / 1.5;
 
 	return Point(x, y);
 };

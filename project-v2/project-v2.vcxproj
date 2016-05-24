@@ -144,6 +144,7 @@
     <ClCompile Include="point.cpp" />
     <ClCompile Include="program.cpp" />
     <ClCompile Include="settings.cpp" />
+    <ClCompile Include="svg-text.cpp" />
     <ClCompile Include="svg-figures.cpp" />
     <ClCompile Include="svg-gradient.cpp" />
     <ClCompile Include="svg-style.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="svg-figures.h" />
     <ClInclude Include="svg-gradient.h" />
     <ClInclude Include="svg-style.h" />
+    <ClInclude Include="svg-text.h" />
     <ClInclude Include="svg.h" />
     <ClInclude Include="terrain-deep.h" />
     <ClInclude Include="terrain-forest.h" />

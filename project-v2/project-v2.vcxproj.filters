@@ -50,6 +50,9 @@
     <ClCompile Include="terrain-forest.cpp">
       <Filter>terrain\land\forest</Filter>
     </ClCompile>
+    <ClCompile Include="svg-text.cpp">
+      <Filter>svg\text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="terrain-forest.h">
       <Filter>terrain\land\forest</Filter>
+    </ClInclude>
+    <ClInclude Include="svg-text.h">
+      <Filter>svg\text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +161,9 @@
     </Filter>
     <Filter Include="terrain\land\forest">
       <UniqueIdentifier>{33300606-5ff7-47a9-aa98-fd4eebfaf5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="svg\text">
+      <UniqueIdentifier>{2afbfeec-e09d-4297-a4ce-9e19d815edda}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
