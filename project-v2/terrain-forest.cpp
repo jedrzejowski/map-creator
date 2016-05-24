@@ -38,7 +38,7 @@ namespace Terrain {
 	}
 
 	void Forest::DrawOn(Svg::SvgImage* svgImage) {
-		Base::DrawOn(svgImage);
+		Land::DrawOn(svgImage);
 
 		if (rand() % 5 == 0) return;
 

@@ -8,6 +8,7 @@ Objects=\
 	$(BinDir)/program.o\
 	$(BinDir)/map.o\
 	$(BinDir)/settings.o\
+	$(BinDir)/random.o\
 	$(BinDir)/perlin.o\
 	$(BinDir)/svg.o\
 	$(BinDir)/color.o\
@@ -40,7 +41,10 @@ $(BinDir)/settings.o: settings.cpp settings.h
 	$(Gpp)
 
 
-# Perlin library
+# Random library
+
+$(BinDir)/random.o: random.cpp random.h
+	$(Gpp)
 
 $(BinDir)/perlin.o: perlin.cpp perlin.h
 	$(Gpp)

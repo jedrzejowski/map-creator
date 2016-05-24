@@ -13,7 +13,7 @@
 #include <map>
 
 #include "error-code.h"
-#include "perlin.h"
+#include "random.h"
 #include "svg.h"
 #include "terrain.h"
 #include "map.h"
