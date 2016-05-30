@@ -15,6 +15,7 @@ using namespace std;
 class Settings {
 	friend class Map;
 	int Width, Length;
+	int LowestPoint;
 
 	double Persistence, Frequency, Amplitude;
 	int Octaves, Randomseed;

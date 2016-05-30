@@ -16,10 +16,10 @@ Settings::Settings() {
 
 
 void Settings::ReadFromFile(string path) {
-	
+
 	ifstream file(path.c_str());
 	int lineNum = 0;
-	
+
 	if (!file.good()) {
 		if (!path.compare(DEFAULT_INPUT_FILE)) {
 			cerr << "Can't access input file" << endl;
@@ -27,7 +27,7 @@ void Settings::ReadFromFile(string path) {
 		}
 		goto printSettings;
 	}
-	
+
 	try {
 		string line, prop, val;
 		int length;
@@ -48,7 +48,7 @@ void Settings::ReadFromFile(string path) {
 
 				prop += line.at(i);
 			}
-			
+
 			//Setting vals
 
 			if (!prop.compare("lenght")) {
@@ -146,11 +146,11 @@ int Settings::GetRandomseed() {
 }
 
 int Settings::GetLowestPoint() {
-	return  Map::GetInstance().LowestPoint;
+	return  LowestPoint;
 }
 
 void Settings::SetLowestPoint(int z) {
-	Map::GetInstance().LowestPoint = z < Map::GetInstance().LowestPoint ? z : Map::GetInstance().LowestPoint;
+	LowestPoint = z < LowestPoint ? z : LowestPoint;
 }
 
 bool Settings::IsLowGraphic() {

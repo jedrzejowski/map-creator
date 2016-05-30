@@ -1,3 +1,21 @@
+/**
+ * @file map.cpp
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 2.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z ciałami klasy Map
+ */
+
 #include "map.h"
 
 using namespace std;
@@ -6,8 +24,7 @@ Map::Map(){
 	mapSettings = new Settings();
 };
 
-Map& Map::GetInstance()
-{
+Map& Map::GetInstance(){
 	static Map instance = Map();
 	return instance;
 }
@@ -16,7 +33,7 @@ Map& Map::GetInstance()
 void Map::SetArgs(int argc, char* argv[]) {
 	if (argc == 1) {
 		cout << ANSI_COLOR_MAGENTA "Default input file: 'input.ini'" ANSI_COLOR_RESET << endl;
-		
+
 		mapSettings->ReadFromFile(DEFAULT_INPUT_FILE);
 		return;
 	}
@@ -79,8 +96,8 @@ void Map::DrawMap(string path) {
 	cout << "Drawing ..." << endl;
 
 	int w, h;
-	
-	outputImage = new Svg::SvgImage(
+
+	Svg::SvgImage* outputImage = new Svg::SvgImage(
 		Point::Transform(0, 0, Settings::GetAmplitude()).X + Point::Transform(Settings::GetWidth(), Settings::GetLength(), -Settings::GetAmplitude()).X,
 		Point::Transform(0, 0, Settings::GetAmplitude()).Y + Point::Transform(Settings::GetWidth(), Settings::GetLength(), -Settings::GetAmplitude()).Y);
 
