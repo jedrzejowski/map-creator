@@ -28,6 +28,7 @@
 #include <typeinfo>
 #include <stdio.h>
 #include <stdlib.h>
+#include <map>
 
 #include "error-code.h"
 #include "random.h"

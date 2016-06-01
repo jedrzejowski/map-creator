@@ -146,11 +146,11 @@ int Settings::GetRandomseed() {
 }
 
 int Settings::GetLowestPoint() {
-	return  LowestPoint;
+	return Map::GetInstance().mapSettings->LowestPoint;
 }
 
 void Settings::SetLowestPoint(int z) {
-	LowestPoint = z < LowestPoint ? z : LowestPoint;
+	Map::GetInstance().mapSettings->LowestPoint = z < Map::GetInstance().mapSettings->LowestPoint ? z : Map::GetInstance().mapSettings->LowestPoint;
 }
 
 bool Settings::IsLowGraphic() {

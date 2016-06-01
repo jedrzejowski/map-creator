@@ -10,6 +10,10 @@ namespace Terrain {
 	public:
 		Forest() { };
 		Forest(Land* terrain);
+		/**
+		 * [TreeSeed description]
+		 * @return [description]
+		 */
 		static bool TreeSeed();
 
 		virtual std::string GetSurfaceClasses();
