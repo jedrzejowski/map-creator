@@ -1,3 +1,21 @@
+/**
+ * @file svg-gradient.h
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 2.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z nagłówkowy klasy Svg::Gradient i jej pochodne
+ */
+
 #pragma once
 #include "header.h"
 

@@ -1,7 +1,7 @@
 /**
  * @file point.cpp
  * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
- * @version 1.0
+ * @version 2.0
  *
  * @section LICENSE
  *

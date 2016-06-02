@@ -5,3 +5,4 @@ a.out
 /output-map.svg
 /docs
 /bin
+*.o

@@ -1,3 +1,21 @@
+/**
+ * @file svg-gradient.cpp
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 2.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z ciałami klasy Svg::Gradient i inne tego typu
+ */
+
 #include "header.h"
 
 namespace Svg {
@@ -62,7 +80,7 @@ namespace Svg {
 
 	void LinearGradient::SetPath(float x1, float y1, float x2, float y2) {
 		X1 = x1;
-		Y1 = y1; 
+		Y1 = y1;
 		X2 = x2;
 		Y2 = y2;
 	}

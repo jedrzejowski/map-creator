@@ -1,121 +1,125 @@
+/**
+ * @file terrain.h
+ * @author  Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * @version 2.0
+ *
+ * @section LICENSE
+ *
+ * Copyright (C) 2016 Adam Jędrzejowski <a.jedrzejowski@gmail.com>
+ * This file is part of map-creator
+ *
+ * map-creator can not be copied and/or distributed without the express
+ * permission of Adam Jędrzejowski
+ *
+ * @section DESCRIPTION
+ *
+ * Plik z nagłówkowy klasy Terrain::Base
+ */
+
 #pragma once
 #include "header.h"
 
 namespace Terrain
 {
 	/**
-	 *
+	 * Podstawowa klasa terenu
 	 */
 	class Base {
-		int X, Y, Z;
+		int X, //<! Współrzędna X
+			Y, //<! Współrzędna Y
+			Z  //<! wysokość;
 
 	protected:
 		/**
-		 * [InsertConstructor description]
-		 * @param base [description]
+		 * Jest to funckja która powinna być wykonana gdy chcemy obiekt włożyć do tbalicy surface Mapy.
+		 * Usuwa ona poprzedni element i wstawia nowy
+		 * @param base nowy teren
 		 */
 		void InsertConstructor(Base* base);
 
 		/**
-		 * [DrawWorldEdge description]
-		 * @param svgImage [description]
+		 * Rysuje krawdescription]ędzie mapy
+		 * @param svgImage wskaźnik do rysunku Svg::SvgImage
 		 */
 		virtual void DrawWorldEdge(Svg::SvgImage* svgImage);
 
 	public:
 		/**
-		 *
+		 * Konstukktor domyślny
 		 */
 		Base() {};
+
 		/**
-		 *
+		 * Konstruktor z współrzędnymi
+		 * @param x X
+		 * @param y Y
+		 * @param z Z, wysokość
 		 */
 		Base(int x, int y, int z);
 
 		/**
-		 * [Init description]
+		 * Inicjuje obiekt, obiekt sprawdza swoje otoczenie i odnanduje sam siebie
 		 */
 		virtual void Init();
 
-		/**
-		 * [GetX description]
-		 * @return [description]
-		 */
 		int GetX();
-
-		/**
-		 * [GetY description]
-		 * @return [description]
-		 */
 		int GetY();
-
-		/**
-		 * [GetZ description]
-		 * @return [description]
-		 */
 		int GetZ();
-
-		/**
-		 * [SetX description]
-		 * @param val [description]
-		 */
 		void SetX(int val);
-		/**
-		 * [SetY description]
-		 * @param val [description]
-		 */
 		void SetY(int val);
-		/**
-		 * [SetZ description]
-		 * @param val [description]
-		 */
 		void SetZ(int val);
-
+//<! Współrzędna X
 		/**
-		 * [GetTransitionNameX description]
-		 * @return [description]
+		 * Zwaraca nazwe klasy przejścia między terenowego na X, uwzględnia sąsiadów
+		 * @return
 		 */
 		std::string GetTransitionNameX();
+
 		/**
-		 * [GetTransitionNameY description]
-		 * @return [description]
+		 * Zwaraca nazwe klasy przejścia między terenowego na Y, uwzględnia sąsiadów
+		 * @return
 		 */
 		std::string GetTransitionNameY();
 
 		/**
-		 * [GetSurfaceColor description]
-		 * @return [description]
+		 * Zwraca kolor powierzcni
+		 * @return
 		 */
 		virtual Svg::Color GetSurfaceColor() {};
+
 		/**
-		 * [GetSurfaceClasses description]
-		 * @return [description]
+		 * Zwraca klase/klasy powierzchni
+		 * @return
 		 */
 		virtual std::string GetSurfaceClasses() {};
+
 		/**
-		 * [GetSurfaceXClasses description]
-		 * @return [description]
+		 * Zwraca klase/klasy przejścia terenowego na X
+		 * @return
 		 */
 		virtual std::string GetSurfaceXClasses();
+
 		/**
-		 * [GetSurfaceYClasses description]
-		 * @return [description]
+		 * Zwraca klase/klasy przejścia terenowego na Y
+		 * @return
 		 */
 		virtual std::string GetSurfaceYClasses();
+
 		/**
-		 * [GetName description]
-		 * @return [description]
+		 * Zwraca nazwe terenu
+		 * @return
 		 */
 		virtual std::string GetName() {};
 
 		/**
-		 * [InsertDefs description]
-		 * @param svgImage [description]
+		 * Dodaje definicja swoich zasobów do obrazu Svg::SvgImage
+		 * @param svgImage
 		 */
 		virtual void InsertDefs(Svg::SvgImage* svgImage) {};
+
 		/**
-		 * [DrawOn description]
-		 * @param svgImage [description]
+		 * Rysuje samego siebie na obrazie
+		 * @param svgImage
 		 */
 		virtual void DrawOn(Svg::SvgImage* svgImage);
 	};
