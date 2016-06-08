@@ -25,29 +25,29 @@ Objects=\
 	$(BinDir)/terrain-water.o\
 	$(BinDir)/terrain-deep.o
 
-$(OutDir)/map.exe: $(Objects)
+$(OutDir)/map.exe: $(Objects) bin
 	g++ -std=c++11 $(Objects) -o $@
 
 # Program
 
-$(BinDir)/program.o: program.cpp
+$(BinDir)/program.o: program.cpp debug
 	$(Gpp)
 
-# Map 
+# Map
 
-$(BinDir)/map.o: map.cpp map.h
+$(BinDir)/map.o: map.cpp map.h debug
 	$(Gpp)
 
-$(BinDir)/settings.o: settings.cpp settings.h
+$(BinDir)/settings.o: settings.cpp settings.h debug
 	$(Gpp)
 
 
 # Random library
 
-$(BinDir)/random.o: random.cpp random.h
+$(BinDir)/random.o: random.cpp random.h debug
 	$(Gpp)
 
-$(BinDir)/perlin.o: perlin.cpp perlin.h
+$(BinDir)/perlin.o: perlin.cpp perlin.h debug
 	$(Gpp)
 
 
@@ -55,48 +55,54 @@ $(BinDir)/perlin.o: perlin.cpp perlin.h
 # SVG library
 #
 
-$(BinDir)/svg.o: svg.cpp svg.h
+$(BinDir)/svg.o: svg.cpp svg.h debug
 	$(Gpp)
 
-$(BinDir)/color.o: color.cpp color.h
+$(BinDir)/color.o: color.cpp color.h debug
 	$(Gpp)
 
-$(BinDir)/point.o: point.cpp point.h
+$(BinDir)/point.o: point.cpp point.h debug
 	$(Gpp)
 
-$(BinDir)/svg-figures.o: svg-figures.cpp svg-figures.h
+$(BinDir)/svg-figures.o: svg-figures.cpp svg-figures.h debug
 	$(Gpp)
 
-$(BinDir)/svg-style.o: svg-style.cpp svg-style.h
+$(BinDir)/svg-style.o: svg-style.cpp svg-style.h debug
 	$(Gpp)
 
-$(BinDir)/svg-gradient.o: svg-gradient.cpp svg-gradient.h
+$(BinDir)/svg-gradient.o: svg-gradient.cpp svg-gradient.h debug
 	$(Gpp)
 
-$(BinDir)/svg-text.o: svg-text.cpp svg-text.h
+$(BinDir)/svg-text.o: svg-text.cpp svg-text.h debug
 	$(Gpp)
 
 #
 # Terrain library
 #
 
-$(BinDir)/terrain.o: terrain.cpp terrain.h
+$(BinDir)/terrain.o: terrain.cpp terrain.h debug
 	$(Gpp)
 
-$(BinDir)/terrain-land.o: terrain-land.cpp terrain-land.h
+$(BinDir)/terrain-land.o: terrain-land.cpp terrain-land.h debug
 	$(Gpp)
 
 $(BinDir)/terrain-forest.o: terrain-forest.cpp terrain-forest.h
 	$(Gpp)
 
-$(BinDir)/terrain-sand.o: terrain-sand.cpp terrain-sand.h
+$(BinDir)/terrain-sand.o: terrain-sand.cpp terrain-sand.h debug
 	$(Gpp)
 
-$(BinDir)/terrain-rocky.o: terrain-rocky.cpp terrain-rocky.h
+$(BinDir)/terrain-rocky.o: terrain-rocky.cpp terrain-rocky.h debug
 	$(Gpp)
 
-$(BinDir)/terrain-water.o: terrain-water.cpp terrain-water.h
+$(BinDir)/terrain-water.o: terrain-water.cpp terrain-water.h debug
 	$(Gpp)
 
-$(BinDir)/terrain-deep.o: terrain-deep.cpp terrain-deep.h
+$(BinDir)/terrain-deep.o: terrain-deep.cpp terrain-deep.h debug
 	$(Gpp)
+
+# Foldery
+debug:
+	mkdir debug
+bin:
+	mkdir bin

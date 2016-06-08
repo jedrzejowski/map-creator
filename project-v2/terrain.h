@@ -27,7 +27,7 @@ namespace Terrain
 	class Base {
 		int X, //<! Współrzędna X
 			Y, //<! Współrzędna Y
-			Z  //<! wysokość;
+			Z;  //<! wysokość
 
 	protected:
 		/**
